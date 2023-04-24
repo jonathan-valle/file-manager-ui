@@ -39,6 +39,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/file-manager-ui/artifact
+      - add_ssh_keys:
+          fingerprints:
+            - "21:0a:a5:86:6c:e1:52:e0:25:b2:62:9d:22:f7:e5:da"
       - run:
           command: |
             ssh-keyscan 64.226.126.29 >> ~/.ssh/known_hosts
