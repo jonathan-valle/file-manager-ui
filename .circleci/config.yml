@@ -41,7 +41,7 @@ jobs:
           at: ~/file-manager-ui/artifact
       - run:
           command: |
-            ssh-keyscan -t ed25519 64.226.126.29 >> ~/.ssh/known_hosts
+            ssh-keyscan 64.226.126.29 >> ~/.ssh/known_hosts
             scp -r artifact/file-manager-ui root@64.226.126.29:/home/deployment/file-manager-ui
             ssh root@64.226.126.29 "cd /home/deployment && ./deploy.sh"
   increment_version:
