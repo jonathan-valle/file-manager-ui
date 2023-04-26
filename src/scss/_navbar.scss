@@ -1,0 +1,61 @@
+/* Style pour le bloc principal de la navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3498db;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Style pour le bloc contenant le logo */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Style pour le logo */
+.navbar__logo {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Style pour le bloc contenant le menu */
+.navbar__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Style pour un élément du menu */
+.navbar__item {
+  margin-left: 1rem;
+}
+
+/* Style pour un lien du menu */
+.navbar__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.navbar__link:hover,
+.navbar__link:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+/* Style pour le lien "Home" */
+.navbar__link:first-child {
+  margin-left: 0;
+}
+
+/* Style pour le lien "Contact" */
+.navbar__link:last-child {
+  margin-right: 0;
+}

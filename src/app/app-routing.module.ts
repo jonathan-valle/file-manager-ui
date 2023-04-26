@@ -12,6 +12,10 @@ const routes: Routes = [
       component: FeaturesView,
       children: [
         {
+          path: "",
+          loadChildren: () => import("./features/home/home.module").then(m => m.HomeModule),
+        },
+        {
           path: "file-merge",
           loadChildren: () => import("./features/file-merge/file-merge.module").then(m => m.FileMergeModule),
         }

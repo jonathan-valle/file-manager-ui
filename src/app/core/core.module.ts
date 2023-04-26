@@ -5,15 +5,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "../shared/shared.module";
 import { MainView } from "./views/main/main.view";
 import { FeaturesView } from "../features/features.view";
-import { QuestionRestService } from "./service/rest/question-rest.service";
 import { ToolbarComponent } from "./views/main/components/toolbar/toolbar.component";
-import { TopicRestService } from "./service/rest/topic-rest.service";
-import { QuestionService } from "./service/question.service";
-import { TopicService } from "./service/topic.service";
-import { ChatRestService } from "./service/rest/chat.rest.service";
 import { FileMergeRestService } from "./service/rest/file-merge.rest.service";
 import { VersionRestService } from "./service/rest/version-rest.service";
-import { FooterComponent } from "./views/main/components/footer/footer.component";
+import { FileMergeService } from "./service/file-merge.service";
 
 @NgModule({
   declarations: [
@@ -39,8 +34,7 @@ export class CoreModule {
   static COMPONENTS_LIST = [
     MainView,
     FeaturesView,
-    ToolbarComponent,
-    FooterComponent
+    ToolbarComponent
   ];
 
   /**
@@ -59,15 +53,11 @@ export class CoreModule {
   static PROVIDER_LIST = [
 
     /* Rest Services */
-    QuestionRestService,
-    TopicRestService,
-    ChatRestService,
     FileMergeRestService,
     VersionRestService,
 
     /* Business Services */
-    QuestionService,
-    TopicService
+    FileMergeService
   ];
 
 }

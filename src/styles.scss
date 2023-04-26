@@ -1,152 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&family=Unbounded:wght@200;400&display=swap');
+
+@import "scss/navbar";
+
+$font-family-base: 'Roboto', sans-serif;
+$font-size-base: 16px;
+
 $theme: #454cad;
 $dark-text: #5f6982;
 
-.uploader {
-  display: block;
-  clear: both;
+$blue: #1684FD;
+
+body {
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+.container {
   margin: 0 auto;
-  width: 100%;
+  max-width: 1000px;
+  padding: 0 15px;
+}
 
-  label {
-    float: left;
-    clear: both;
-    width: 100%;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    background: #fff;
-    border-radius: 7px;
-    border: 3px solid #eee;
-    transition: all .2s ease;
-    user-select: none;
+.file-drop{
+  display: grid;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  width: 500px;
+  height: 300px;
+}
 
-    &:hover {
-      border-color: $theme;
-    }
+.file-drop__image {
+  text-align: center;
+}
 
-    &.hover {
-      border: 3px solid $theme;
-      box-shadow: inset 0 0 0 6px #eee;
+.file-drop__input {
+  text-align: center;
+}
 
-      #start {
-        i.fa {
-          transform: scale(0.8);
-          opacity: 0.3;
-        }
-      }
-    }
+.file-drop__input-file {
+
+}
+
+.file-drop__drag-text{
+  font-size: 1.5rem;
+}
+
+.file-drop__browse{
+  .file-drop__browse-text{
+    font-size: 1.5rem;
   }
 
-  #start {
-    float: left;
-    clear: both;
-    width: 100%;
-
-    &.hidden {
-      display: none;
-    }
-
-    i.fa {
-      font-size: 50px;
-      margin-bottom: 1rem;
-      transition: all .2s ease-in-out;
-    }
-  }
-
-  #response {
-    float: left;
-    clear: both;
-    width: 100%;
-
-    &.hidden {
-      display: none;
-    }
-
-    #messages {
-      margin-bottom: .5rem;
-    }
-  }
-
-  #file-image {
-    display: inline;
-    margin: 0 auto .5rem auto;
-    width: auto;
-    height: auto;
-    max-width: 180px;
-
-    &.hidden {
-      display: none;
-    }
-  }
-
-  #notimage {
-    display: block;
-    float: left;
-    clear: both;
-    width: 100%;
-
-    &.hidden {
-      display: none;
-    }
-  }
-
-  progress,
-  .progress {
-    // appearance: none;
-    display: inline;
-    clear: both;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 180px;
-    height: 8px;
-    border: 0;
-    border-radius: 4px;
-    background-color: #eee;
-    overflow: hidden;
-  }
-
-  input[type="file"] {
-    display: none;
-  }
-
-  div {
-    margin: 0 0 .5rem 0;
-    color: $dark-text;
-  }
-
-  .btn {
-    display: inline-block;
-    margin: .5rem .5rem 1rem .5rem;
-    clear: both;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    text-transform: initial;
-    border-radius: .2rem;
-    outline: none;
-    padding: 0 1rem;
-    height: 36px;
-    line-height: 36px;
-    color: #fff;
-    transition: all 0.2s ease-in-out;
-    box-sizing: border-box;
-    background: $theme;
-    border-color: $theme;
+  .file-drop__browse-btn{
+    font-size: 1.5rem;
+    color: $blue;
     cursor: pointer;
   }
-}
-
-
-.button-load {
-  background-color: #454cad;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  padding: 12px 16px;
-  font-size: 16px;
-}
-
-.content--scrollable {
-  height: calc(100% - 100px);
-  overflow-y: auto;
 }

@@ -1,9 +1,13 @@
-<nav>
-  <div class="nav-container">
-    <ul class="nav-list">
-      <li class="nav-item nav-item-brand" [routerLink]="['/']">Home</li>
-      <li class="nav-item" [routerLink]="['/file-merge']">File Merge</li>
-    </ul>
+<nav class="navbar">
+  <div class="navbar__brand">
+    {{ version }} - {{ backendVersion }}
   </div>
+  <ul class="navbar__menu">
+    <li class="navbar__item">
+      <a class="navbar__link" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" [routerLink]="['/file-merge']">File-merge</a>
+    </li>
+  </ul>
 </nav>
-
