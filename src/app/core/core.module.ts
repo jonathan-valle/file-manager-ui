@@ -9,6 +9,7 @@ import { ToolbarComponent } from "./views/main/components/toolbar/toolbar.compon
 import { FileMergeRestService } from "./service/rest/file-merge.rest.service";
 import { VersionRestService } from "./service/rest/version-rest.service";
 import { FileMergeService } from "./service/file-merge.service";
+import { RemovePasswordRestService } from "./service/rest/remove-password.rest.service";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ export class CoreModule {
     /* Rest Services */
     FileMergeRestService,
     VersionRestService,
+    RemovePasswordRestService,
 
     /* Business Services */
     FileMergeService
