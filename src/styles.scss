@@ -21,11 +21,11 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1500px;
   padding: 0 15px;
 }
 
-.file-drop{
+.file-drop {
   display: grid;
   justify-content: center;
   border: 2px dashed #ccc;
@@ -48,23 +48,23 @@ body {
 
 }
 
-.file-drop__drag-text{
+.file-drop__drag-text {
   font-size: 1.5rem;
 }
 
-.file-drop__browse{
-  .file-drop__browse-text{
+.file-drop__browse {
+  .file-drop__browse-text {
     font-size: 1.5rem;
   }
 
-  .file-drop__browse-btn{
+  .file-drop__browse-btn {
     font-size: 1.5rem;
     color: $blue;
     cursor: pointer;
   }
 }
 
-.file-preview{
+.file-preview {
   position: relative;
   margin: 4px;
   width: 198px;
@@ -74,21 +74,21 @@ body {
   align-items: center;
   align-content: space-around;
   justify-content: center;
-  border: 1px solid rgba(0,0,0,0);
+  border: 1px solid rgba(0, 0, 0, 0);
   background: #f6f6f8;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
 
-  canvas{
-    box-shadow: 0 0 4px 0 rgba(0,0,0,.2)
+  canvas {
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2)
   }
 }
 
-.file-preview:hover{
+.file-preview:hover {
   background: #FFFFFF;
   transition: all 0.5s ease-in-out;
 }
 
-.file-preview__close{
+.file-preview__close {
   top: 2%;
   left: 85%;
   width: 22px;
@@ -103,7 +103,7 @@ body {
   cursor: pointer;
 }
 
-.file-preview__close:hover{
+.file-preview__close:hover {
   background-color: red;
   color: white;
 }

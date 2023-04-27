@@ -1,18 +1,6 @@
 <div class="mt-5 flex flex-column justify-content-center">
 
-  <div class="flex justify-content-center" >
-    <div class="file-drop" (drop)="drop($event)" (dragover)="dragOver($event)">
-      <div class="file-drop__image" ></div>
-      <div class="file-drop__input">
-        <input type="file" #fileInput class="file-drop__input-file" style="display: none;" (change)="onFileChange($event)" multiple>
-        <div class="file-drop__drag-text">Drag & drop</div>
-        <div class="file-drop__browse">
-          <span class="file-drop__browse-text">or </span>
-          <span class="file-drop__browse-btn" (click)="fileInput.click()">Browse</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <file-drop (filesEmit)="addFiles($event)"></file-drop>
 
   <div class="mt-4 pb-4 flex justify-content-center">
     <p-button label="Merge files" (onClick)="upload()" [disabled]="!files || files.length === 0"></p-button>
@@ -20,7 +8,7 @@
 
   <div class="flex justify-content-center gap-3 flex-wrap">
     <ng-container *ngFor="let file of files">
-      <app-pdf-page [file]="file"></app-pdf-page>
+      <pdf-page [file]="file"></pdf-page>
     </ng-container>
   </div>
 

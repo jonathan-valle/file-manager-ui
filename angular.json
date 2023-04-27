@@ -41,7 +41,8 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "file-saver"
+              "file-saver",
+              "pdfjs-dist"
             ]
           },
           "configurations": {

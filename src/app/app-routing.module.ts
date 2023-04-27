@@ -18,6 +18,10 @@ const routes: Routes = [
         {
           path: "file-merge",
           loadChildren: () => import("./features/file-merge/file-merge.module").then(m => m.FileMergeModule),
+        },
+        {
+          path: "remove-password",
+          loadChildren: () => import("./features/remove-password/remove-password.module").then(m => m.RemovePasswordModule),
         }
       ]
     }]

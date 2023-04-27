@@ -1,19 +1,14 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
-import { FileMergeService } from "../../../core/service/file-merge.service";
+import { Component } from "@angular/core";
 import { saveAs } from "file-saver";
-import * as pdfjsLib from 'pdfjs-dist';
+import { FileMergeService } from "../../../core/service/file-merge.service";
 
 @Component({
-  selector: 'app-file-merge-home',
-  templateUrl: './file-merge-home.component.html'
+  selector: "app-file-merge-home",
+  templateUrl: "./file-merge-home.component.html"
 })
 export class FileMergeHomeComponent {
 
-  @ViewChild('pdfCanvas', { static: true }) pdfCanvasRef?: ElementRef<HTMLCanvasElement>;
-  pdfLoaded = false;
-
   constructor(private fileMergeService: FileMergeService) {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.js';
   }
 
   files: File[] = [];
@@ -29,38 +24,19 @@ export class FileMergeHomeComponent {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
-  onFileChange($event: Event) {
-    let target = $event.target as HTMLInputElement;
-    if(target.files) {
-
-      const files = Array.from(target.files);
-      this.files.push(...files);
-    }
-  }
-
-  drop($event: DragEvent) {
-    $event.preventDefault();
-    console.log($event);
-    let target = $event.dataTransfer as DataTransfer;
-    if(target.files) {
-      const files = Array.from(target.files);
-      this.files.push(...files);
-    }
-  }
-
-  dragOver($event: DragEvent) {
-    $event.preventDefault();
-  }
-
   upload() {
     const formData = new FormData();
     for (let i = 0; i < this.files.length; i++) {
       let file = this.files[i];
-      formData.append('files', file);
+      formData.append("files", file);
     }
 
     this.fileMergeService.mergeFiles(formData).subscribe((response) => {
-      saveAs(response, 'test.pdf');
+      saveAs(response, "test.pdf");
     });
+  }
+
+  addFiles($event: File[]) {
+    this.files.push(...$event);
   }
 }

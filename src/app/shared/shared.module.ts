@@ -4,6 +4,8 @@ import { RouterModule } from "@angular/router";
 import { PrimeNgModule } from "./modules/prime-ng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FaIconsModule } from "./modules/fa-icons.module";
+import { PdfPageComponent } from "./component/pdf-page/pdf-page.component";
+import { FileDropComponent } from "./component/file-drop/file-drop.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { FaIconsModule } from "./modules/fa-icons.module";
 export class SharedModule {
 
   /* Shared components */
-  static COMPONENTS_LIST = [];
+  static COMPONENTS_LIST = [
+    PdfPageComponent,
+    FileDropComponent
+  ];
 
   /* Shared directive */
   static DIRECTIVE_LIST = [];

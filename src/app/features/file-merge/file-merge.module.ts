@@ -3,7 +3,6 @@ import { SharedModule } from "../../shared/shared.module";
 import { FileMergeRoutingModule } from "./file-merge-routing.module";
 import { FileMergeHomeComponent } from "./file-merge-home/file-merge-home.component";
 import { FileMergeView } from "./view/file-merge.view";
-import { PdfPageComponent } from "./pdf-page/pdf-page.component";
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ export class FileMergeModule {
   /* Module components */
   static COMPONENTS_LIST = [
     FileMergeView,
-    FileMergeHomeComponent,
-    PdfPageComponent
+    FileMergeHomeComponent
   ];
 
   /* Module modals */
