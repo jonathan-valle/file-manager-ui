@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { PrimeNgModule } from "./modules/prime-ng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FaIconsModule } from "./modules/fa-icons.module";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ export class SharedModule {
     FormsModule,
 
     /* App specific modules */
-    PrimeNgModule
+    PrimeNgModule,
+    FaIconsModule
   ];
 
   /* Module modals */

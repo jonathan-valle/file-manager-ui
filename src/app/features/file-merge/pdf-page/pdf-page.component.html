@@ -1,0 +1,8 @@
+<div class="file-preview">
+  <div class="file-preview__close">
+    <fa-icon [size]="'1x'" [icon]="'close'" class="fa-icon"></fa-icon>
+  </div>
+  <canvas #firstPageCanvas id="firstPageCanvas" width="127" height="180"></canvas>
+  <fa-icon *ngIf="pdfError === 'PASSWORD'" [size]="'2x'" [icon]="'lock'" class="fa-icon absolute"></fa-icon>
+  <fa-icon *ngIf="pdfError === 'INVALID'" [size]="'2x'" [icon]="'question'" class="fa-icon absolute"></fa-icon>
+</div>

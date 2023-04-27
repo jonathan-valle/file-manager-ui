@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { FileMergeService } from "../../../core/service/file-merge.service";
 import { saveAs } from "file-saver";
+import * as pdfjsLib from 'pdfjs-dist';
 
 @Component({
   selector: 'app-file-merge-home',
@@ -8,7 +9,11 @@ import { saveAs } from "file-saver";
 })
 export class FileMergeHomeComponent {
 
+  @ViewChild('pdfCanvas', { static: true }) pdfCanvasRef?: ElementRef<HTMLCanvasElement>;
+  pdfLoaded = false;
+
   constructor(private fileMergeService: FileMergeService) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.js';
   }
 
   files: File[] = [];
@@ -27,6 +32,7 @@ export class FileMergeHomeComponent {
   onFileChange($event: Event) {
     let target = $event.target as HTMLInputElement;
     if(target.files) {
+
       const files = Array.from(target.files);
       this.files.push(...files);
     }
