@@ -1,0 +1,25 @@
+<div class="mt-5 flex justify-content-center gap-5">
+
+  <div class="flex flex-column">
+    <file-drop (addFiles)="addFiles($event)"></file-drop>
+
+    <div class="mt-4 pb-4 flex justify-content-center">
+      <p-button label="Merge files" [styleClass]="'w-full'" (onClick)="upload()"
+                [disabled]="!files || files.length === 0" class="flex-1"></p-button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="files.length > 0">
+    <div class="flex gap-3 flex-wrap" style="flex-grow: 2">
+      <ng-container *ngFor="let file of files">
+        <pdf-page [file]="file"
+                  (removeFile)="removeFile($event)"
+                  (removeFilePassword)="removeFilePassword($event)"
+                  (removeFilePermissions)="removeFilePermissions($event)"
+        ></pdf-page>
+      </ng-container>
+    </div>
+  </ng-container>
+
+</div>
+

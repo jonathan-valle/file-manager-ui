@@ -1,16 +1,16 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { FileMergeComponent } from "./component/file-merge.component";
-import { FileMergeView } from "./view/file-merge.view";
+import { RemovePagesComponent } from "./remove-pages/remove-pages.component";
+import { RemovePagesView } from "./view/remove-pages.view";
 
 const routes: Routes = [
   {
     path: "",
-    component: FileMergeView,
+    component: RemovePagesView,
     children: [
       {
         path: "",
-        component: FileMergeComponent,
+        component: RemovePagesComponent,
         pathMatch: "full"
       }
     ]
@@ -22,5 +22,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class FileMergeRoutingModule {
+export class RemovePagesRoutingModule {
 }

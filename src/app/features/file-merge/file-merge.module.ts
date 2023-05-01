@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
 import { FileMergeRoutingModule } from "./file-merge-routing.module";
-import { FileMergeHomeComponent } from "./file-merge-home/file-merge-home.component";
+import { FileMergeComponent } from "./component/file-merge.component";
 import { FileMergeView } from "./view/file-merge.view";
+import { DialogService } from "primeng/dynamicdialog";
+import { RemovePasswordModal } from "./remove-password/remove-password.modal";
 
 @NgModule({
   declarations: [
@@ -12,17 +14,20 @@ import { FileMergeView } from "./view/file-merge.view";
   imports: [
     SharedModule,
     FileMergeRoutingModule,
-  ]
+  ],
+  providers: [DialogService],
 })
 export class FileMergeModule {
 
   /* Module components */
   static COMPONENTS_LIST = [
     FileMergeView,
-    FileMergeHomeComponent
+    FileMergeComponent
   ];
 
   /* Module modals */
-  static MODALS_LIST = [];
+  static MODALS_LIST = [
+    RemovePasswordModal
+  ];
 
 }

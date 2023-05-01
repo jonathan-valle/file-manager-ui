@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FaIconsModule } from "./modules/fa-icons.module";
 import { PdfPageComponent } from "./component/pdf-page/pdf-page.component";
 import { FileDropComponent } from "./component/file-drop/file-drop.component";
+import { PdfPageContentComponent } from "./component/pdf-page-content/pdf-page-content.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ export class SharedModule {
   /* Shared components */
   static COMPONENTS_LIST = [
     PdfPageComponent,
-    FileDropComponent
+    FileDropComponent,
+    PdfPageContentComponent
   ];
 
   /* Shared directive */

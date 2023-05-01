@@ -21,6 +21,8 @@ import { BadgeModule } from "primeng/badge";
 import { AccordionModule } from "primeng/accordion";
 import { CardModule } from "primeng/card";
 import { InputSwitchModule } from "primeng/inputswitch";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { DialogModule } from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ export class PrimeNgModule {
     PanelModule,
     AccordionModule,
     CardModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ConfirmDialogModule,
+    DialogModule
   ];
 
 }

@@ -1,53 +1,14 @@
-import { NgModule } from '@angular/core';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgModule } from "@angular/core";
+import { FaIconLibrary, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
-  faBan,
-  faBars,
-  faCartShopping,
-  faCertificate,
-  faCheck,
-  faChevronDown,
-  faChevronRight,
-  faChevronUp,
-  faCircleDown,
-  faCircleInfo,
-  faCirclePlus,
-  faCircleXmark, faClose, faCoffee,
-  faComments,
-  faEllipsisVertical,
-  faEnvelope,
-  faExclamationTriangle,
-  faEye,
-  faFileCircleCheck,
-  faFileContract,
-  faFileInvoice,
-  faFileInvoiceDollar,
-  faFileLines,
-  faFolder,
-  faFolderOpen,
-  faHouseUser, faLock,
-  faMagnifyingGlass,
-  faPaperPlane,
-  faPencil,
-  faPeopleGroup,
-  faPlus, faQuestion,
-  faRotateLeft,
-  faRotateRight,
-  faSave,
-  faSignOutAlt,
-  faSpinner,
-  faTimes,
-  faUpload,
-  faUser,
-  faUsers,
-  faXmark
+  faClose,
+  faCloudArrowUp,
+  faLock,
+  faLockOpen,
+  faQuestion,
+  faTriangleExclamation
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faCircleCheck as farCircleCheck,
-  faCircleQuestion,
-  faCircleXmark as farCircleXmark
-} from '@fortawesome/free-regular-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 @NgModule({
   imports: [
@@ -67,7 +28,10 @@ export class FaIconsModule {
   static ICONS_LIST: IconDefinition[] = [
     faLock,
     faQuestion,
-    faClose
+    faClose,
+    faLockOpen,
+    faTriangleExclamation,
+    faCloudArrowUp
   ];
 
   constructor(faIconLibrary: FaIconLibrary) {

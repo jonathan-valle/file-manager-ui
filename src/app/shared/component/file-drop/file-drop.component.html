@@ -1,6 +1,8 @@
 <div class="flex justify-content-center">
   <div class="file-drop" (drop)="drop($event)" (dragover)="dragOver($event)">
-    <div class="file-drop__image"></div>
+    <div class="file-drop__image">
+      <fa-icon [size]="'2xl'" [icon]="'cloud-arrow-up'" class="fa-icon blue"></fa-icon>
+    </div>
     <div class="file-drop__input">
       <input type="file" #fileInput class="file-drop__input-file" style="display: none;" (change)="onFileChange($event)"
              multiple>

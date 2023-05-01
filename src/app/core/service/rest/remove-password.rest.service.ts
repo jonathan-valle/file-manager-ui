@@ -10,8 +10,16 @@ export class RemovePasswordRestService {
   constructor(private http: HttpClient) {
   }
 
-  removePassword(formData: FormData): Observable<Blob> {
-    return this.http.post("/api/remove-password", formData, {
+  removeSecurity(file: File, password?: string): Observable<Blob> {
+    const formData = new FormData();
+
+    formData.append("file", file);
+
+    if (password) {
+      formData.append("password", password);
+    }
+
+    return this.http.post("/api/remove-security", formData, {
       responseType: "blob"
     });
   }

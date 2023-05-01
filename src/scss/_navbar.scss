@@ -1,9 +1,11 @@
+$blue: #1684FD;
+
 /* Style pour le bloc principal de la navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #3498db;
+  background-color: $blue;
   padding: 1rem;
   font-family: Arial, sans-serif;
   font-size: 1rem;

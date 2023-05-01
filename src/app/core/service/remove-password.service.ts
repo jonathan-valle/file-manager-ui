@@ -10,7 +10,7 @@ export class RemovePasswordService {
   constructor(private removePasswordRestService: RemovePasswordRestService) {
   }
 
-  removePassword(formData: FormData): Observable<Blob> {
-    return this.removePasswordRestService.removePassword(formData);
+  removeSecurity(file: File, password?: string): Observable<Blob> {
+    return this.removePasswordRestService.removeSecurity(file, password);
   }
 }

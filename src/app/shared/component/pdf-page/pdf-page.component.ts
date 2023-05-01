@@ -1,8 +1,8 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from "@angular/core";
 import * as pdfjsLib from "pdfjs-dist";
 import { PDFDocumentProxy } from "pdfjs-dist";
 import { catchError, from } from "rxjs";
-import { faCoffee, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FileUpload } from "../../../core/model/file-upload.model";
 
 @Component({
   selector: "pdf-page",
@@ -10,30 +10,37 @@ import { faCoffee, faLock } from "@fortawesome/free-solid-svg-icons";
 })
 export class PdfPageComponent implements OnChanges {
 
-  @Input() file: File | undefined;
+  @Input() file: FileUpload | undefined;
 
+  @Output() removeFile = new EventEmitter<string>();
+  @Output() removeFilePassword = new EventEmitter<string>();
+  @Output() removeFilePermissions = new EventEmitter<string>();
 
   @ViewChild("firstPageCanvas", {static: true, read: ElementRef<HTMLCanvasElement>})
   private firstPageCanvas?: ElementRef<HTMLCanvasElement>;
 
-  pdfError: "PASSWORD" | "INVALID" | undefined;
+  pdfError: "PASSWORD" | "INVALID" | "PERMISSIONS" | undefined;
+  isHovered: boolean = false;
 
   constructor() {
     pdfjsLib.GlobalWorkerOptions.workerSrc = "assets/pdfjs/pdf.worker.js";
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+
     if (!this.file) {
       return;
     }
 
-    if (this.file.type !== "application/pdf") {
+    const file = this.file.file;
+
+    if (file.type !== "application/pdf") {
       console.error("Le fichier sélectionné n'est pas un PDF.");
       return;
     }
 
     const fileReader = new FileReader();
-    fileReader.readAsArrayBuffer(this.file);
+    fileReader.readAsArrayBuffer(file);
     fileReader.onload = () => {
       const arrayBuffer = fileReader.result as ArrayBuffer;
 
@@ -53,6 +60,16 @@ export class PdfPageComponent implements OnChanges {
           return [];
         })
       ).subscribe(pdf => {
+        from(pdf.getPermissions()).subscribe(permissions => {
+          if (!permissions) {
+            return;
+          }
+
+          console.warn("PDF has permissions", permissions);
+          this.pdfError = "PERMISSIONS";
+          return;
+        })
+
         const _pdf = pdf as PDFDocumentProxy;
         _pdf.getPage(1).then(page => {
 
@@ -82,6 +99,35 @@ export class PdfPageComponent implements OnChanges {
     };
   }
 
-  protected readonly faCoffee = faCoffee;
-  protected readonly faLock = faLock;
+  removeDocument() {
+    if (!this.file) {
+      return;
+    }
+
+    this.removeFile.next(this.file.uuid);
+  }
+
+  onButtonHover() {
+    this.isHovered = true;
+  }
+
+  onButtonLeave() {
+    this.isHovered = false;
+  }
+
+  removePassword() {
+    if (!this.file) {
+      return;
+    }
+
+    this.removeFilePassword.next(this.file.uuid);
+  }
+
+  removePermissions() {
+    if (!this.file) {
+      return;
+    }
+
+    this.removeFilePermissions.next(this.file.uuid);
+  }
 }
