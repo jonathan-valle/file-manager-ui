@@ -5,6 +5,7 @@ import { FileMergeComponent } from "./component/file-merge.component";
 import { FileMergeView } from "./view/file-merge.view";
 import { DialogService } from "primeng/dynamicdialog";
 import { RemovePasswordModal } from "./remove-password/remove-password.modal";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RemovePasswordModal } from "./remove-password/remove-password.modal";
   imports: [
     SharedModule,
     FileMergeRoutingModule,
+    TranslateModule,
   ],
   providers: [DialogService],
 })

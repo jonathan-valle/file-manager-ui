@@ -3,6 +3,7 @@ import { SharedModule } from "../../shared/shared.module";
 import { RemovePagesRoutingModule } from "./remove-pages-routing.module";
 import { RemovePagesComponent } from "./remove-pages/remove-pages.component";
 import { RemovePagesView } from "./view/remove-pages.view";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { RemovePagesView } from "./view/remove-pages.view";
   imports: [
     SharedModule,
     RemovePagesRoutingModule,
+    TranslateModule,
   ]
 })
 export class RemovePagesModule {
