@@ -42,4 +42,12 @@ export class PdfPageContentComponent implements OnChanges {
       viewport: scaledViewport
     });
   }
+
+  select() {
+    if (!this.pagePdf) {
+      return;
+    }
+
+    this.pagePdf.display = !this.pagePdf.display;
+  }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FaIconLibrary, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
+  faCheck,
   faClose,
   faCloudArrowUp,
   faLock,
@@ -31,7 +32,8 @@ export class FaIconsModule {
     faClose,
     faLockOpen,
     faTriangleExclamation,
-    faCloudArrowUp
+    faCloudArrowUp,
+    faCheck
   ];
 
   constructor(faIconLibrary: FaIconLibrary) {

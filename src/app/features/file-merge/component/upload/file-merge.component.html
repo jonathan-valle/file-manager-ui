@@ -18,12 +18,19 @@
   <ng-container *ngIf="files.length > 0">
     <div class="flex gap-3 flex-wrap" style="flex-grow: 2">
       <ng-container *ngFor="let file of files">
-        <pdf-page [file]="file"
-                  (removeFile)="removeFile($event)"
-                  (removeFilePassword)="removeFilePassword($event)"
-                  (removeFilePermissions)="removeFilePermissions($event)"
-        ></pdf-page>
+        <pdf-first-page [file]="file"
+                        (removeFile)="removeFile($event)"
+                        (removeFilePassword)="removeFilePassword($event)"
+                        (removeFilePermissions)="removeFilePermissions($event)"
+                        (pdfLoadFinished)="pdfLoadFinished($event)"
+        ></pdf-first-page>
       </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="loadingFiles.length > 0">
+    <div>
+      Loading files...
     </div>
   </ng-container>
 

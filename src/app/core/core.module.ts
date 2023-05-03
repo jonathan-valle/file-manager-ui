@@ -10,6 +10,8 @@ import { FileMergeRestService } from "./service/rest/file-merge.rest.service";
 import { VersionRestService } from "./service/rest/version-rest.service";
 import { FileMergeService } from "./service/file-merge.service";
 import { RemovePasswordRestService } from "./service/rest/remove-password.rest.service";
+import { PdfManagerService } from "./service/pdf-manager.service";
+import { FileSplitRestService } from "./service/rest/file-split.rest.service";
 
 @NgModule({
   declarations: [
@@ -57,9 +59,11 @@ export class CoreModule {
     FileMergeRestService,
     VersionRestService,
     RemovePasswordRestService,
+    FileSplitRestService,
 
     /* Business Services */
-    FileMergeService
+    FileMergeService,
+    PdfManagerService
   ];
 
 }

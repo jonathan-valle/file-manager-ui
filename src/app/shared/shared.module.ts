@@ -4,9 +4,10 @@ import { RouterModule } from "@angular/router";
 import { PrimeNgModule } from "./modules/prime-ng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FaIconsModule } from "./modules/fa-icons.module";
-import { PdfPageComponent } from "./component/pdf-page/pdf-page.component";
+import { PdfFirstPageComponent } from "./component/pdf-first-page/pdf-first-page.component";
 import { FileDropComponent } from "./component/file-drop/file-drop.component";
 import { PdfPageContentComponent } from "./component/pdf-page-content/pdf-page-content.component";
+import { FilePasswordModal } from "./component/file-password/file-password.modal";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ export class SharedModule {
 
   /* Shared components */
   static COMPONENTS_LIST = [
-    PdfPageComponent,
+    PdfFirstPageComponent,
     FileDropComponent,
     PdfPageContentComponent
   ];
@@ -54,5 +55,7 @@ export class SharedModule {
   ];
 
   /* Module modals */
-  static MODALS_LIST = [];
+  static MODALS_LIST = [
+    FilePasswordModal
+  ];
 }

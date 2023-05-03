@@ -2,10 +2,10 @@ import { Component } from "@angular/core";
 import { DynamicDialogRef } from "primeng/dynamicdialog";
 
 @Component({
-  selector: "app-file-merge",
-  templateUrl: "./remove-password.modal.html"
+  selector: "app-file-password",
+  templateUrl: "./file-password.modal.html"
 })
-export class RemovePasswordModal {
+export class FilePasswordModal {
 
   constructor(public ref: DynamicDialogRef) {
   }

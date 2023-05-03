@@ -1,0 +1,26 @@
+<div class="flex flex-column justify-content-center align-items-center">
+  <h2>{{ 'file.split.title' | translate }}</h2>
+  <p class="text-center" style="max-width: 800px">{{ 'file.split.title.description' | translate }}</p>
+</div>
+
+<div class="mt-5 flex justify-content-center gap-5">
+  <div class="flex flex-column" *ngIf="!file">
+    <file-drop (addFiles)="addFile($event)"></file-drop>
+  </div>
+</div>
+
+<ng-container *ngIf="file">
+  <div class="mt-4 pb-4 flex justify-content-center">
+    <p-button label="Merge files" [styleClass]="'w-full'" (onClick)="splitFiles()" class="flex-1"></p-button>
+  </div>
+</ng-container>
+
+<div class="mt-5 flex justify-content-center gap-5 flex-wrap">
+  <div *ngFor="let pagePdf of pagesPdf; let i = index">
+    <pdf-page-content [pagePdf]="pagePdf"></pdf-page-content>
+  </div>
+</div>
+
+<!--<p-button label="Split file" [styleClass]="'w-full'" (onClick)="upload()"-->
+<!--          [disabled]="!file" class="flex-1"></p-button>-->
+

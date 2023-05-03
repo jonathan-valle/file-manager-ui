@@ -114,6 +114,22 @@ body {
   color: white;
 }
 
+.file-preview__select {
+  top: 2%;
+  left: 2%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  color: #f6f6f8;
+  border-radius: 50%;
+  line-height: 1px;
+  position: absolute;
+  cursor: pointer;
+}
+
 .file-preview__lock {
   position: absolute;
   top: 50%;

@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { FileMergeComponent } from "./component/file-merge.component";
+import { FileMergeComponent } from "./component/upload/file-merge.component";
 import { FileMergeView } from "./view/file-merge.view";
 
 const routes: Routes = [

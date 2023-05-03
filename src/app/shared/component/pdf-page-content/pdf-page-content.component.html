@@ -1,3 +1,6 @@
-<div class="file-preview">
+<div class="file-preview cursor-pointer" (click)="select()">
+  <div *ngIf="pagePdf?.display" class="file-preview__select">
+    <fa-icon [size]="'1x'" [icon]="'check'" class="fa-icon"></fa-icon>
+  </div>
   <canvas #pagePdfCanvas id="pagePdfCanvas" width="127" height="180"></canvas>
 </div>

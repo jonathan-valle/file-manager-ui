@@ -1,16 +1,16 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { RemovePagesComponent } from "./remove-pages/remove-pages.component";
-import { RemovePagesView } from "./view/remove-pages.view";
+import { FileSplitComponent } from "./component/upload/file-split.component";
+import { FileSplitView } from "./view/file-split.view";
 
 const routes: Routes = [
   {
     path: "",
-    component: RemovePagesView,
+    component: FileSplitView,
     children: [
       {
         path: "",
-        component: RemovePagesComponent,
+        component: FileSplitComponent,
         pathMatch: "full"
       }
     ]
@@ -22,5 +22,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class RemovePagesRoutingModule {
+export class FileSplitRoutingModule {
 }

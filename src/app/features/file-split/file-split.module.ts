@@ -1,29 +1,29 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
-import { FileMergeRoutingModule } from "./file-merge-routing.module";
-import { FileMergeComponent } from "./component/upload/file-merge.component";
-import { FileMergeView } from "./view/file-merge.view";
+import { FileSplitRoutingModule } from "./file-split-routing.module";
+import { FileSplitComponent } from "./component/upload/file-split.component";
+import { FileSplitView } from "./view/file-split.view";
 import { DialogService } from "primeng/dynamicdialog";
 import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
-    ...FileMergeModule.COMPONENTS_LIST,
-    ...FileMergeModule.MODALS_LIST,
+    ...FileSplitModule.COMPONENTS_LIST,
+    ...FileSplitModule.MODALS_LIST,
   ],
   imports: [
     SharedModule,
-    FileMergeRoutingModule,
+    FileSplitRoutingModule,
     TranslateModule,
   ],
   providers: [DialogService],
 })
-export class FileMergeModule {
+export class FileSplitModule {
 
   /* Module components */
   static COMPONENTS_LIST = [
-    FileMergeView,
-    FileMergeComponent
+    FileSplitView,
+    FileSplitComponent
   ];
 
   /* Module modals */

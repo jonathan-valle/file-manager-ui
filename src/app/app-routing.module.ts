@@ -20,8 +20,8 @@ const routes: Routes = [
           loadChildren: () => import("./features/file-merge/file-merge.module").then(m => m.FileMergeModule),
         },
         {
-          path: "remove-pages",
-          loadChildren: () => import("./features/remove-pages/remove-pages.module").then(m => m.RemovePagesModule),
+          path: "file-split",
+          loadChildren: () => import("./features/file-split/file-split.module").then(m => m.FileSplitModule),
         }
       ]
     }]
