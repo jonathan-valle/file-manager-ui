@@ -9,7 +9,7 @@
 
     <ng-container *ngIf="files.length > 0">
       <div class="mt-4 pb-4 flex justify-content-center">
-        <p-button label="Merge files" [styleClass]="'w-full'" (onClick)="upload()"
+        <p-button label="{{ 'file.merge.title' | translate }}" [styleClass]="'w-full'" (onClick)="upload()"
                   [disabled]="!files || files.length === 0" class="flex-1"></p-button>
       </div>
     </ng-container>

@@ -11,7 +11,7 @@
 
 <ng-container *ngIf="file">
   <div class="mt-4 pb-4 flex justify-content-center">
-    <p-button label="Merge files" [styleClass]="'w-full'" (onClick)="splitFiles()" class="flex-1"></p-button>
+    <p-button label="{{ 'file.split.title' | translate }}" [styleClass]="'w-full'" (onClick)="splitFiles()"></p-button>
   </div>
 </ng-container>
 
