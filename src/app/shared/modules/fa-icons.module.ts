@@ -1,13 +1,18 @@
 import { NgModule } from "@angular/core";
 import { FaIconLibrary, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
+  faAddressCard,
+  faArrowsSplitUpAndLeft,
   faCheck,
   faClose,
   faCloudArrowUp,
+  faCodeMerge,
+  faEnvelope,
   faLock,
   faLockOpen,
   faQuestion,
-  faTriangleExclamation
+  faTriangleExclamation,
+  faUser
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -33,7 +38,12 @@ export class FaIconsModule {
     faLockOpen,
     faTriangleExclamation,
     faCloudArrowUp,
-    faCheck
+    faCheck,
+    faCodeMerge,
+    faArrowsSplitUpAndLeft,
+    faAddressCard,
+    faEnvelope,
+    faUser
   ];
 
   constructor(faIconLibrary: FaIconLibrary) {

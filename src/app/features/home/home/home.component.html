@@ -1,3 +1,20 @@
-<div>
-  Home component
+<div class="mt-7 flex justify-content-center align-items-stretch gap-5">
+  <a class="card card--home" [routerLink]="['/file-merge']">
+    <div class="card__icon">
+      <fa-icon [size]="'2xl'" [icon]="'code-merge'" class="fa-icon blue"></fa-icon>
+    </div>
+    <div class="card__content">
+      <div class="font-bold" style="font-size: 1.2rem">{{ 'file.merge.title' | translate }}</div>
+      <div>{{ 'file.merge.title.description' | translate }}</div>
+    </div>
+  </a>
+  <a class="card card--home flex" [routerLink]="['/file-split']">
+    <div class="card__icon">
+      <fa-icon [size]="'2xl'" [icon]="'arrows-split-up-and-left'" class="fa-icon blue"></fa-icon>
+    </div>
+    <div class="card__content">
+      <div class="font-bold" style="font-size: 1.2rem">{{ 'file.split.title' | translate }}</div>
+      <div>{{ 'file.split.title.description' | translate }}</div>
+    </div>
+  </a>
 </div>

@@ -1,27 +1,27 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
-import { HomeRoutingModule } from "./home-routing.module";
-import { HomeComponent } from "./home/home.component";
-import { HomeView } from "./view/home.view";
+import { ContactRoutingModule } from "./contact-routing.module";
+import { ContactComponent } from "./contact/contact.component";
+import { ContactView } from "./view/contact.view";
 import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
-    ...HomeModule.COMPONENTS_LIST,
-    ...HomeModule.MODALS_LIST,
+    ...ContactModule.COMPONENTS_LIST,
+    ...ContactModule.MODALS_LIST,
   ],
   imports: [
     SharedModule,
-    HomeRoutingModule,
+    ContactRoutingModule,
     TranslateModule,
   ]
 })
-export class HomeModule {
+export class ContactModule {
 
   /* Module components */
   static COMPONENTS_LIST = [
-    HomeView,
-    HomeComponent
+    ContactView,
+    ContactComponent
   ];
 
   /* Module modals */

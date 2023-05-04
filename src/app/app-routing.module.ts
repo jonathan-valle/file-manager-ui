@@ -22,6 +22,10 @@ const routes: Routes = [
         {
           path: "file-split",
           loadChildren: () => import("./features/file-split/file-split.module").then(m => m.FileSplitModule),
+        },
+        {
+          path: "contact",
+          loadChildren: () => import("./features/contact/contact.module").then(m => m.ContactModule),
         }
       ]
     }]
