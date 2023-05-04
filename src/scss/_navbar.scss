@@ -35,7 +35,10 @@ $blue: #1684FD;
 
 /* Style pour un élément du menu */
 .navbar__item {
-  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0.5rem;
 }
 
 /* Style pour un lien du menu */
@@ -44,6 +47,7 @@ $blue: #1684FD;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+  text-align: center;
 }
 
 .navbar__link:hover,

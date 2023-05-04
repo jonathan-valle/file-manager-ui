@@ -3,7 +3,7 @@
   <p class="text-center" style="max-width: 800px">{{ 'file.merge.title.description' | translate }}</p>
 </div>
 
-<div class="mt-5 flex justify-content-center gap-5">
+<div class="mt-5 flex-wrap flex justify-content-center gap-5">
   <div class="flex flex-column">
     <file-drop (addFiles)="addFiles($event)"></file-drop>
 
@@ -16,7 +16,7 @@
   </div>
 
   <ng-container *ngIf="files.length > 0">
-    <div class="flex gap-3 flex-wrap" style="flex-grow: 2">
+    <div class="flex gap-3 flex-wrap justify-content-center align-content-center" style="flex-grow: 2">
       <ng-container *ngFor="let file of files">
         <pdf-first-page [file]="file"
                         (removeFile)="removeFile($event)"

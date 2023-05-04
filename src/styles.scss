@@ -226,3 +226,9 @@ body {
   border: 1px solid $blue;
   width: 80%;
 }
+
+@media (max-width: 480px) {
+  .file-drop {
+    width: 300px;
+  }
+}
