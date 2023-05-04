@@ -1,4 +1,4 @@
-<div class="flex justify-content-center">
+<div class="flex justify-content-center cursor-pointer" (click)="fileInput.click()">
   <div class="file-drop" (drop)="drop($event)" (dragover)="dragOver($event)">
     <div class="file-drop__image">
       <fa-icon [size]="'2xl'" [icon]="'cloud-arrow-up'" class="fa-icon blue"></fa-icon>
@@ -9,7 +9,7 @@
       <div class="file-drop__drag-text">Drag & drop</div>
       <div class="file-drop__browse">
         <span class="file-drop__browse-text">or </span>
-        <span class="file-drop__browse-btn" (click)="fileInput.click()">Browse</span>
+        <span class="file-drop__browse-btn">Browse</span>
       </div>
     </div>
   </div>
