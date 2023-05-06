@@ -1,0 +1,99 @@
+@import "./variables";
+
+.container--board {
+  display: flex;
+  height: calc(100% - 50px);
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.documents-bar, .signatories-bar {
+  width: 20%;
+  background-color: $background;
+}
+
+.custom-viewer {
+  padding-top: 20px;
+  width: 60%;
+  background-color: $background;
+  overflow-y: scroll;
+  scrollbar-width: none; /* cache la scrollbar pour Firefox */
+  -ms-overflow-style: none; /* cache la scrollbar pour Internet Explorer et Edge */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-viewer::-webkit-scrollbar {
+  display: none;
+}
+
+.bar-item {
+  display: flex;
+  background-color: $background-somber;
+  border-bottom: 2px solid $background-border;
+  height: 60px;
+}
+
+.bar-item__drag {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color-grey;
+}
+
+.bar-item__number {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar-item__name {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.bar-item__expand {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color-grey;
+}
+
+#mainContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+#pdfContainer {
+  position: absolute;
+}
+
+.pdfViewer .page {
+  border: none !important;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+}
+
+.bar-item-collapse {
+  height: auto; /* Ajustez cette valeur en fonction de la hauteur maximale souhaitée */
+  transition: max-height 0.3s ease-in-out;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
+  -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+}
+
+.bar-item-collapse::-webkit-scrollbar {
+  display: none;
+}
+
+.collapsed {
+  max-height: 0;
+}

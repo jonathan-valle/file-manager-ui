@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&family=Unbounded:wght@200;400&display=swap');
 
+@import "scss/variables";
 @import "scss/navbar";
 @import "scss/modal";
+@import "scss/board";
 
-$font-family-base: 'Roboto', sans-serif;
-$font-size-base: 16px;
+@import 'pdfjs-dist/web/pdf_viewer.css';
 
-$dark-text: #5f6982;
-$blue: #1684FD;
-$white: #FFFFFF;
 
-body {
+html, body {
   border: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 
   font-family: $font-family-base;
   font-size: $font-size-base;
 
   background-color: #F2F6FE;
+
+  --scale-factor: 1;
 }
 
 .blue {

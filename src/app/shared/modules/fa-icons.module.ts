@@ -3,11 +3,14 @@ import { FaIconLibrary, FontAwesomeModule } from "@fortawesome/angular-fontaweso
 import {
   faAddressCard,
   faArrowsSplitUpAndLeft,
+  faCaretDown,
+  faCaretRight,
   faCheck,
   faClose,
   faCloudArrowUp,
   faCodeMerge,
   faEnvelope,
+  faGripLines,
   faLock,
   faLockOpen,
   faQuestion,
@@ -43,7 +46,10 @@ export class FaIconsModule {
     faArrowsSplitUpAndLeft,
     faAddressCard,
     faEnvelope,
-    faUser
+    faUser,
+    faGripLines,
+    faCaretDown,
+    faCaretRight
   ];
 
   constructor(faIconLibrary: FaIconLibrary) {

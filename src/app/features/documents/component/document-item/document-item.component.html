@@ -1,0 +1,23 @@
+<div class="bar-item">
+  <div class="bar-item__drag">
+    <fa-icon [size]="'1x'" [icon]="'grip-lines'" class="fa-icon"></fa-icon>
+  </div>
+  <div class="bar-item__number">
+    2
+  </div>
+  <div class="bar-item__name">
+    {{ file?.file?.name }}
+  </div>
+  <div class="bar-item__expand">
+    <fa-icon *ngIf="isCollapsed" [size]="'1x'" [icon]="'caret-down'" class="fa-icon cursor-pointer"
+             (click)="toggleCollapse()"></fa-icon>
+    <fa-icon *ngIf="!isCollapsed" [size]="'1x'" [icon]="'caret-right'" class="fa-icon cursor-pointer"
+             (click)="toggleCollapse()"></fa-icon>
+  </div>
+</div>
+<div class="bar-item-collapse flex justify-content-center flex-column" [class.collapsed]="!isCollapsed">
+  <ng-container *ngFor="let pagePdf of pagesPdf; let i = index">
+    <pdf-page-content [pagePdf]="pagePdf"></pdf-page-content>
+  </ng-container>
+</div>
+

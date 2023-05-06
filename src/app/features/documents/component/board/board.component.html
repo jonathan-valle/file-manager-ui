@@ -1,0 +1,19 @@
+<div class="container container--board">
+  <div class="documents-bar">
+    <ng-container *ngFor="let file of files">
+      <app-document-item [file]="file"></app-document-item>
+    </ng-container>
+
+  </div>
+  <div class="custom-viewer">
+    <div *ngIf="files.length == 0" class="flex flex-column">
+      <file-drop (addFiles)="addFiles($event)"></file-drop>
+    </div>
+    <ng-container *ngIf="files.length > 0" class="flex justify-content-center">
+      <pdf-viewer [file]="files[0]"></pdf-viewer>
+    </ng-container>
+  </div>
+  <div class="signatories-bar">
+    test
+  </div>
+</div>
