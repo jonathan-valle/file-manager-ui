@@ -18,8 +18,6 @@ html, body {
   font-size: $font-size-base;
 
   background-color: #F2F6FE;
-
-  --scale-factor: 1;
 }
 
 .blue {
@@ -226,6 +224,12 @@ html, body {
 .separator {
   border: 1px solid $blue;
   width: 80%;
+}
+
+.pdf-viewer-container {
+  height: 100%;
+  display: grid;
+  border: 2px solid #ccc;
 }
 
 @media (max-width: 480px) {

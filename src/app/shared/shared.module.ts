@@ -8,6 +8,7 @@ import { PdfFirstPageComponent } from "./component/pdf-first-page/pdf-first-page
 import { FileDropComponent } from "./component/file-drop/file-drop.component";
 import { PdfPageContentComponent } from "./component/pdf-page-content/pdf-page-content.component";
 import { FilePasswordModal } from "./component/file-password/file-password.modal";
+import { PdfViewerModule } from "./modules/pdf-viewer/pdf-viewer.module";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ export class SharedModule {
 
     /* App specific modules */
     PrimeNgModule,
-    FaIconsModule
+    FaIconsModule,
+    PdfViewerModule
   ];
 
   /* Module modals */

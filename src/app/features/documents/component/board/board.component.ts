@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { v4 } from "uuid";
 import { FileUpload } from "../../../../core/model/file-upload.model";
+import { PdfViewerEvent } from "../../../../shared/modules/pdf-viewer/pdf-viewer-event-bus";
 
 @Component({
   selector: "app-file-merge",
@@ -18,5 +19,9 @@ export class BoardComponent {
         file: file
       });
     });
+  }
+
+  viewerEvents($event: PdfViewerEvent) {
+    console.log($event);
   }
 }

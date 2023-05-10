@@ -1,0 +1,52 @@
+@import '~pdfjs-dist/web/pdf_viewer.css';
+
+.pdfViewer * {
+  box-sizing: content-box;
+}
+
+#viewerContainer {
+  position: absolute;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+#mainContainer {
+  position: relative;
+  height: 100%;
+  background-color: rgba(42, 42, 46, 1);
+}
+
+.container-block {
+  height: 100%;
+  width: 100%;
+  background: red;
+  opacity: 0.5;
+  z-index: 10;
+  position: absolute
+}
+
+.loader-container {
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  background-color: black;
+}
+
+.loader {
+  align-self: center;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

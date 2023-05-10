@@ -1,0 +1,28 @@
+<ng-container *ngIf="!hideToolbar">
+  <ng-container *ngIf="toolbar">
+    <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="!toolbar">
+    <pdf-viewer-toolbar></pdf-viewer-toolbar>
+  </ng-container>
+</ng-container>
+
+<div style="height: 100%;">
+  <!-- Toolbar -->
+
+  <!-- Main container -->
+  <div id="mainContainer">
+    <!-- Document Loader -->
+    <div class="loader-container" [style.display]="isLoading ? 'flex' : 'none'">
+      <div class="loader" style="align-self: center;"></div>
+    </div>
+
+    <!-- Content Blocker -->
+    <div [hidden]="!blockViewer" class="container-block"></div>
+
+    <!-- Viewer Container -->
+    <div #pdfViewerContainer id="viewerContainer" tabindex="0">
+      <div id="viewer" class="pdfViewer"></div>
+    </div>
+  </div>
+</div>
