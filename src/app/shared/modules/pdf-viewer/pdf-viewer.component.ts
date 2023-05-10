@@ -216,6 +216,9 @@ export class PdfViewerComponent implements AfterViewInit, OnDestroy {
         if (Math.round(container.scrollTop + container.offsetHeight + 1) >= container.scrollHeight) {
           this.changes.next({eventName: "bottomreached"});
         }
+        if (container.scrollTop === 0) {
+          this.changes.next({eventName: "topreached"});
+        }
       }
     });
   }

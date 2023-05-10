@@ -5,16 +5,38 @@
 }
 
 #viewerContainer {
+  padding: 20px;
   position: absolute;
   overflow-y: scroll;
   height: 100%;
   width: 100%;
+  scrollbar-width: none; /* cache la scrollbar pour Firefox */
+  -ms-overflow-style: none; /* cache la scrollbar pour Internet Explorer et Edge */
+}
+
+#viewerContainer::-webkit-scrollbar {
+  display: none;
 }
 
 #mainContainer {
   position: relative;
   height: 100%;
-  background-color: rgba(42, 42, 46, 1);
+}
+
+.pdfViewer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pdfViewer .page {
+  border: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px !important;
+}
+
+.pdfViewer .page .canvasWrapper {
+  border-radius: 5px !important;
 }
 
 .container-block {
@@ -33,7 +55,6 @@
   height: 100%;
   width: 100%;
   opacity: 1;
-  background-color: black;
 }
 
 .loader {

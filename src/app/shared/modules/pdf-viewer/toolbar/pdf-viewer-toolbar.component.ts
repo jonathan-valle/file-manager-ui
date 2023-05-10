@@ -62,7 +62,6 @@ export class PdfViewerToolbarComponent implements OnInit {
       return;
     }
     this.selectedScale = "" + value;
-    console.log("updateScale", this.selectedScale);
     this.pdfViewerComponent.pdfViewer.currentScaleValue = this.selectedScale;
   }
 
@@ -76,10 +75,13 @@ export class PdfViewerToolbarComponent implements OnInit {
       filter(event => event.eventName === "pagesinit"),
       takeUntil(this.destroy$)
     ).subscribe((event) => {
-      console.log("pagesinit", event);
       // Set default page zoom to 'page-fit' for every document loaded
       this.updatePage(1);
-      this.updateScale("page-fit");
+      this.updateScale("1.10");
+
+      if (this.pdfViewerComponent.pdfViewerContainer?.nativeElement?.scrollTop) {
+        this.pdfViewerComponent.pdfViewerContainer.nativeElement.scrollTop = 0;
+      }
       this.numPages = event.data.source.pdfDocument.numPages;
     });
 
