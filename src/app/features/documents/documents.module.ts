@@ -6,7 +6,6 @@ import { DocumentsView } from "./view/documents.view";
 import { DialogService } from "primeng/dynamicdialog";
 import { TranslateModule } from "@ngx-translate/core";
 import { DocumentItemComponent } from "./component/document-item/document-item.component";
-import { PdfViewerComponent } from "./component/pdf-viewer/pdf-viewer.component";
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ export class DocumentsModule {
   static COMPONENTS_LIST = [
     DocumentsView,
     BoardComponent,
-    DocumentItemComponent,
-    PdfViewerComponent
+    DocumentItemComponent
   ];
 
   /* Module modals */

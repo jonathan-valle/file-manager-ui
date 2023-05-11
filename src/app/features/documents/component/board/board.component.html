@@ -10,7 +10,11 @@
       <file-drop (addFiles)="addFiles($event)"></file-drop>
     </div>
     <ng-container *ngIf="files.length > 0" class="flex justify-content-center">
-      <pdf-viewer [file]="files[0]"></pdf-viewer>
+      <div class="pdf-viewer-container">
+        <pdf-viewer [pdfSrc]="files[0].file"
+                    (changes)="viewerEvents($event)"
+                    class="flex flex-column"></pdf-viewer>
+      </div>
     </ng-container>
   </div>
   <div class="signatories-bar">

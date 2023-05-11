@@ -1,0 +1,77 @@
+@import 'pdfjs-dist/web/pdf_viewer.css';
+
+.pdfViewer * {
+  box-sizing: content-box;
+}
+
+#viewerContainer {
+  padding: 20px;
+  position: absolute;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  scrollbar-width: none; /* cache la scrollbar pour Firefox */
+  -ms-overflow-style: none; /* cache la scrollbar pour Internet Explorer et Edge */
+}
+
+#viewerContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#mainContainer {
+  position: relative;
+  height: 100%;
+}
+
+.pdfViewer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pdfViewer .page {
+  border: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px !important;
+}
+
+.pdfViewer .page .canvasWrapper {
+  border-radius: 5px !important;
+}
+
+.container-block {
+  height: 100%;
+  width: 100%;
+  background: red;
+  opacity: 0.5;
+  z-index: 10;
+  position: absolute
+}
+
+.loader-container {
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+
+.loader {
+  align-self: center;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

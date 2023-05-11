@@ -5,8 +5,6 @@
 @import "scss/modal";
 @import "scss/board";
 
-@import 'pdfjs-dist/web/pdf_viewer.css';
-
 
 html, body {
   border: none;
@@ -18,8 +16,6 @@ html, body {
   font-size: $font-size-base;
 
   background-color: #F2F6FE;
-
-  --scale-factor: 1;
 }
 
 .blue {
@@ -226,6 +222,11 @@ html, body {
 .separator {
   border: 1px solid $blue;
   width: 80%;
+}
+
+.pdf-viewer-container {
+  height: 100%;
+  display: grid;
 }
 
 @media (max-width: 480px) {

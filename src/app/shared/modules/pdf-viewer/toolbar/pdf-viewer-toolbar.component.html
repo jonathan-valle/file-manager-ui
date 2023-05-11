@@ -1,0 +1,20 @@
+<div id="toolbarContainer" class="p-grid p-nogutter">
+  <div id="pageCounterContainer" class="p-col-4">
+    <input type="number"
+           class="pageSelector"
+           [ngModel]="currentPage"
+           (ngModelChange)="updatePage($event)"
+           [min]="1"
+           [max]="numPages"
+           [disabled]="blockToolbar">
+    <label class="pageSelectorLabel"> of {{numPages}}</label>
+  </div>
+  <div id="scaleSelectorContainer" class="p-col-8">
+    <select class="zoomSelector"
+            [ngModel]="selectedScale"
+            (ngModelChange)="updateScale($event)"
+            [disabled]="blockToolbar">
+      <option *ngFor="let scale of scales" [ngValue]="scale.value">{{scale.name}}</option>
+    </select>
+  </div>
+</div>
