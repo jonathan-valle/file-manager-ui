@@ -1,9 +1,21 @@
 <div class="container container--board">
   <div class="documents-bar">
+
+    <div class="bar-item bar-item--title">
+      <div class="bar-item__number">
+        2
+      </div>
+      <div class="bar-item__name">
+        Documents
+      </div>
+      <div class="bar-item__expand">
+        test
+      </div>
+    </div>
+
     <ng-container *ngFor="let file of files">
       <app-document-item [file]="file"></app-document-item>
     </ng-container>
-
   </div>
   <div class="custom-viewer">
     <div *ngIf="files.length == 0" class="flex flex-column">

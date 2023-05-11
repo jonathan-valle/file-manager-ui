@@ -29,8 +29,16 @@
 .bar-item {
   display: flex;
   background-color: $background-somber;
-  border-bottom: 2px solid $background-border;
+  border-bottom: 1px solid $background-border;
   height: 60px;
+}
+
+.bar-item--title {
+  height: 80px;
+  position: relative;
+  border-bottom: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  clip-path: inset(0px 0px -5px 0px);
 }
 
 .bar-item__drag {
@@ -66,7 +74,7 @@
 
 .bar-item-collapse {
   height: auto; /* Ajustez cette valeur en fonction de la hauteur maximale souhaitée */
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
