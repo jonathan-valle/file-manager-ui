@@ -2,10 +2,12 @@ import { Component } from "@angular/core";
 import { saveAs } from "file-saver";
 import { FileMergeService } from "../../../../core/service/file-merge.service";
 import { v4 } from "uuid";
-import { FileUpload } from "../../../../core/model/file-upload.model";
+import { PdfFile } from "../../../../core/model/pdf-file.model";
 import { DialogService } from "primeng/dynamicdialog";
-import { FilePasswordModal } from "../../../../shared/component/file-password/file-password.modal";
+import { FilePasswordModal } from "../../../../shared/modal/file-password/file-password.modal";
 import { RemovePasswordService } from "../../../../core/service/remove-password.service";
+import { PdfErrorType } from "../../../../core/model/pdf-error.model";
+import { PdfManagerService } from "../../../../core/service/pdf-manager.service";
 
 @Component({
   selector: "app-file-merge",
@@ -13,16 +15,19 @@ import { RemovePasswordService } from "../../../../core/service/remove-password.
 })
 export class FileMergeComponent {
 
-  files: FileUpload[] = [];
+  files: PdfFile[] = [];
   loadingFiles: string[] = [];
   password: string = "";
+  isHovered: boolean = false;
+  protected readonly PdfErrorType = PdfErrorType;
 
   constructor(private fileMergeService: FileMergeService,
               private dialogService: DialogService,
-              private removePasswordService: RemovePasswordService) {
+              private removePasswordService: RemovePasswordService,
+              private pdfManagerService: PdfManagerService) {
   }
 
-  upload() {
+  mergeFiles() {
     this.fileMergeService.mergeFiles(this.files).subscribe((response) => {
       saveAs(response, "merge-file-" + Date.now() + ".pdf");
     });
@@ -32,9 +37,9 @@ export class FileMergeComponent {
     $event.forEach((file) => {
       const uuid = v4();
       this.loadingFiles.push(uuid);
-      this.files.push({
-        uuid: uuid,
-        file: file
+      this.pdfManagerService.loadPdfFile(file, uuid).subscribe((pdfFile: PdfFile) => {
+        this.files.push(pdfFile);
+        this.pdfLoadFinished(uuid);
       });
     });
   }
@@ -62,7 +67,6 @@ export class FileMergeComponent {
     this.unlockPDF($event);
   }
 
-
   pdfLoadFinished($event: string) {
     this.loadingFiles = this.loadingFiles.filter((uuid) => uuid !== $event);
   }
@@ -76,18 +80,25 @@ export class FileMergeComponent {
       return;
     }
 
-    this.removePasswordService.removeSecurity(oldFile.file, password).subscribe(response => {
-      const oldFileProperties = oldFile.file;
+    this.removePasswordService.removeSecurity(oldFile.originalFile, password).subscribe(response => {
+      const oldFileProperties = oldFile.originalFile;
       const oldUUID = oldFile.uuid;
       const newFile = new File([response], oldFileProperties.name, {
         type: oldFileProperties.type,
         lastModified: oldFileProperties.lastModified
       });
 
-      this.files.splice(oldFileIndex, 1, {
-        uuid: oldUUID,
-        file: newFile
+      this.pdfManagerService.loadPdfFile(newFile, oldUUID).subscribe((pdfFile: PdfFile) => {
+        this.files.splice(oldFileIndex, 1, pdfFile);
       });
     });
+  }
+
+  onButtonHover() {
+    this.isHovered = true;
+  }
+
+  onButtonLeave() {
+    this.isHovered = false;
   }
 }

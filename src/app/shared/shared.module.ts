@@ -4,10 +4,9 @@ import { RouterModule } from "@angular/router";
 import { PrimeNgModule } from "./modules/prime-ng.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FaIconsModule } from "./modules/fa-icons.module";
-import { PdfFirstPageComponent } from "./component/pdf-first-page/pdf-first-page.component";
 import { FileDropComponent } from "./component/file-drop/file-drop.component";
 import { PdfPageContentComponent } from "./component/pdf-page-content/pdf-page-content.component";
-import { FilePasswordModal } from "./component/file-password/file-password.modal";
+import { FilePasswordModal } from "./modal/file-password/file-password.modal";
 import { PdfViewerModule } from "./modules/pdf-viewer/pdf-viewer.module";
 
 @NgModule({
@@ -31,7 +30,6 @@ export class SharedModule {
 
   /* Shared components */
   static COMPONENTS_LIST = [
-    PdfFirstPageComponent,
     FileDropComponent,
     PdfPageContentComponent
   ];

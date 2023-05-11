@@ -25,7 +25,7 @@
     </div>
     <ng-container *ngIf="files.length > 0" class="flex justify-content-center">
       <div class="pdf-viewer-container">
-        <pdf-viewer [pdfSrc]="files[0].file"
+        <pdf-viewer [pdfSrc]="files[0].originalFile"
                     (changes)="viewerEvents($event)"
                     class="flex flex-column"></pdf-viewer>
       </div>

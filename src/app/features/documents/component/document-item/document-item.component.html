@@ -1,4 +1,4 @@
-<div class="bar-item">
+<div class="bar-item" [ngClass]="{'bar-item--title--collapsed': !isCollapsed}">
   <div class="bar-item__drag">
     <fa-icon [size]="'1x'" [icon]="'grip-lines'" class="fa-icon"></fa-icon>
   </div>
@@ -6,18 +6,18 @@
     2
   </div>
   <div class="bar-item__name">
-    {{ file?.file?.name }}
+    {{ file?.originalFile?.name }}
   </div>
   <div class="bar-item__expand">
     <fa-icon *ngIf="!isCollapsed" [size]="'1x'" [icon]="'caret-down'" class="fa-icon cursor-pointer"
-             (click)="toggleCollapse()"></fa-icon>
+             (click)="isCollapsed = !isCollapsed"></fa-icon>
     <fa-icon *ngIf="isCollapsed" [size]="'1x'" [icon]="'caret-right'" class="fa-icon cursor-pointer"
-             (click)="toggleCollapse()"></fa-icon>
+             (click)="isCollapsed = !isCollapsed"></fa-icon>
   </div>
 </div>
 <div class="bar-item-collapse flex justify-content-center flex-column" [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
   <ng-container *ngFor="let pagePdf of pagesPdf; let i = index">
-    <pdf-page-content [pagePdf]="pagePdf" class="flex flex-column justify-content-center align-items-center gap-2"></pdf-page-content>
+    <pdf-page-content [pagePdf]="pagePdf.pdfPage" class="flex flex-column justify-content-center align-items-center gap-2"></pdf-page-content>
   </ng-container>
 </div>
 

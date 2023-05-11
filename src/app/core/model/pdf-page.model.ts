@@ -1,6 +1,6 @@
 import { PDFPageProxy } from "pdfjs-dist";
 
-export interface PagesPdf {
+export interface PdfPage {
   uuid: string;
   pageNumber: number;
   pdfPage: PDFPageProxy;

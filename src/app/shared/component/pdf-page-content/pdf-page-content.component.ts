@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from "@angular/core";
 import * as pdfjsLib from "pdfjs-dist";
-import { PagesPdf } from "../../../core/model/pages-pdf.model";
+import { PdfPage } from "../../../core/model/pdf-page.model";
+import { PDFPageProxy } from "pdfjs-dist";
 
 @Component({
   selector: "pdf-page-content",
@@ -8,22 +9,18 @@ import { PagesPdf } from "../../../core/model/pages-pdf.model";
 })
 export class PdfPageContentComponent implements OnChanges {
 
-  @Input() pagePdf: PagesPdf | undefined;
+  @Input() pagePdf?: PDFPageProxy;
 
   @ViewChild("pagePdfCanvas", {static: true, read: ElementRef<HTMLCanvasElement>})
   private pagePdfCanvas?: ElementRef<HTMLCanvasElement>;
 
-  constructor() {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "assets/pdfjs/pdf.worker.js";
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
 
-    if (!this.pagePdfCanvas || !this.pagePdf?.pdfPage) {
+    if (!this.pagePdf || !this.pagePdfCanvas) {
       return;
     }
 
-    let page = this.pagePdf?.pdfPage;
+    let page = this.pagePdf;
 
     const canvas = this.pagePdfCanvas.nativeElement;
     const context = canvas.getContext("2d");
@@ -43,11 +40,5 @@ export class PdfPageContentComponent implements OnChanges {
     });
   }
 
-  select() {
-    if (!this.pagePdf) {
-      return;
-    }
 
-    this.pagePdf.display = !this.pagePdf.display;
-  }
 }

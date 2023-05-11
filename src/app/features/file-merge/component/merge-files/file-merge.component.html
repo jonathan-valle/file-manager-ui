@@ -1,0 +1,62 @@
+<div class="flex flex-column justify-content-center align-items-center">
+  <h2>{{ 'file.merge.title' | translate }}</h2>
+  <p class="text-center" style="max-width: 800px">{{ 'file.merge.title.description' | translate }}</p>
+</div>
+
+<div class="mt-5 flex-wrap flex justify-content-center gap-5">
+  <div class="flex flex-column">
+    <file-drop (addFiles)="addFiles($event)"></file-drop>
+
+    <ng-container *ngIf="files.length > 0">
+      <div class="mt-4 pb-4 flex justify-content-center">
+        <p-button label="{{ 'file.merge.title' | translate }}" [styleClass]="'w-full'" (onClick)="mergeFiles()"
+                  [disabled]="!files || files.length === 0" class="flex-1"></p-button>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="files.length > 0">
+    <div class="flex gap-3 flex-wrap justify-content-center align-content-center" style="flex-grow: 2">
+      <ng-container *ngFor="let file of files">
+
+        <div class="file-preview">
+          <div class="file-preview__close" (click)="removeFile(file.uuid)">
+            <fa-icon [size]="'1x'" [icon]="'close'" class="fa-icon"></fa-icon>
+          </div>
+
+          <ng-container *ngIf="file.pagesProxy.length > 0">
+            <pdf-page-content [pagePdf]="file.pagesProxy[0].pdfPage"></pdf-page-content>
+          </ng-container>
+
+          <fa-icon *ngIf="file.pdfError?.type === PdfErrorType.InvalidFormat" [size]="'2x'" [icon]="'question'"
+                   class="fa-icon absolute"></fa-icon>
+
+          <div *ngIf="file.pdfError?.type === PdfErrorType.PasswordProtected" class="file-preview__lock">
+            <fa-icon [size]="'2x'" [icon]="isHovered ? 'lock-open' : 'lock'" class="fa-icon"
+                     style="color: red"></fa-icon>
+            <button class="btn-remove password" (mouseover)="onButtonHover()" (mouseleave)="onButtonLeave()"
+                    (click)="removeFilePassword(file.uuid)">
+              Remove password
+            </button>
+          </div>
+
+          <div *ngIf="file.pdfError?.type === PdfErrorType.Permissions" class="file-preview__lock">
+            <fa-icon [size]="'2x'" [icon]="'triangle-exclamation'" class="fa-icon" style="color: orangered"></fa-icon>
+            <button class="btn-remove permissions" (mouseover)="onButtonHover()" (mouseleave)="onButtonLeave()"
+                    (click)="removeFilePermissions(file.uuid)">
+              Remove permissions
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="loadingFiles.length > 0">
+    <div>
+      Loading files...
+    </div>
+  </ng-container>
+
+</div>
+

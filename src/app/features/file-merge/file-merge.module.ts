@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
 import { FileMergeRoutingModule } from "./file-merge-routing.module";
-import { FileMergeComponent } from "./component/upload/file-merge.component";
+import { FileMergeComponent } from "./component/merge-files/file-merge.component";
 import { FileMergeView } from "./view/file-merge.view";
 import { DialogService } from "primeng/dynamicdialog";
 import { TranslateModule } from "@ngx-translate/core";

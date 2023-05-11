@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
-import { FileUpload } from "../../../../core/model/file-upload.model";
+import { PdfFile } from "../../../../core/model/pdf-file.model";
 import { v4 } from "uuid";
-import { PagesPdf } from "../../../../core/model/pages-pdf.model";
 import { PdfManagerService } from "../../../../core/service/pdf-manager.service";
 import { FileSplitService } from "../../../../core/service/file-split.service";
 import { saveAs } from "file-saver";
@@ -12,31 +11,39 @@ import { saveAs } from "file-saver";
 })
 export class FileSplitComponent {
 
-  file?: FileUpload;
-  pagesPdf: PagesPdf[] = [];
+  file?: PdfFile;
 
   constructor(private pdfManagerService: PdfManagerService,
               private fileSplitService: FileSplitService) {
   }
 
-  upload() {
+  addFile(file: File[]) {
+    const uuid = v4();
 
-  }
-
-  addFile($event: File[]) {
-    this.file = {
-      uuid: v4(),
-      file: $event[0],
-    };
-
-    this.pdfManagerService.loadPdfPages($event[0]).subscribe(pages => {
-      this.pagesPdf = pages;
+    this.pdfManagerService.loadPdfFile(file[0], uuid).subscribe(pdfFile => {
+      this.file = pdfFile;
     });
   }
 
   splitFiles() {
-    this.fileSplitService.splitFiles(this.file?.file!, this.pagesPdf).subscribe(response => {
+    if (!this.file?.pagesProxy) {
+      return;
+    }
+
+    this.fileSplitService.splitFiles(this.file?.originalFile!, this.file?.pagesProxy).subscribe(response => {
       saveAs(response, "file-split" + Date.now() + ".zip");
+    });
+  }
+
+  select(pageUuid: string) {
+    if (!this.file?.pagesProxy) {
+      return;
+    }
+
+    this.file?.pagesProxy.forEach(page => {
+      if (page.uuid === pageUuid) {
+        page.display = !page.display;
+      }
     });
   }
 }

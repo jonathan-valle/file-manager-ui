@@ -7,5 +7,4 @@ export enum PdfErrorType {
 
 export interface PdfError {
   type: PdfErrorType;
-  message: string;
 }

@@ -9,12 +9,13 @@
 
 .documents-bar, .signatories-bar {
   width: 20%;
-  background-color: $background;
+  background-color: $white;
   display: flex;
   flex-direction: column;
 }
 
 .documents-bar--list{
+  background-color: $white;
   overflow-y: scroll;
   flex: 1;
   scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
@@ -29,7 +30,7 @@
 .custom-viewer {
   height: 100%;
   width: 60%;
-  background-color: $background;
+  background-color: $white-somber-1;
   overflow-y: scroll;
   scrollbar-width: none; /* cache la scrollbar pour Firefox */
   -ms-overflow-style: none; /* cache la scrollbar pour Internet Explorer et Edge */
@@ -42,12 +43,9 @@
 
 .bar-item {
   display: flex;
-  background-color: $background-somber;
-  border-bottom: 1px solid $background-border;
+  background-color: $white;
+  border-bottom: 1px solid $white-somber-3;
   height: 60px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
 }
 
 .bar-item--title {
@@ -56,6 +54,7 @@
   border-bottom: none;
   box-shadow: 0 0 6px rgba(0,0,0,0.4);
   clip-path: inset(0px 0px -5px 0px);
+  z-index: 10;
 }
 
 .bar-item__drag {
@@ -89,10 +88,22 @@
   color: $text-color-grey;
 }
 
+.collapsed{
+  display: none;
+}
 
+.bar-item-collapse {
+  background-color: $white-somber-2;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
+.bar-item-collapse::-webkit-scrollbar {
+  display: none;
+}
 
-
-.collapsed {
-  max-height: 0;
+.bar-item--title--collapsed{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 }

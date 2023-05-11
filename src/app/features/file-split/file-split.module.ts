@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
 import { FileSplitRoutingModule } from "./file-split-routing.module";
-import { FileSplitComponent } from "./component/upload/file-split.component";
+import { FileSplitComponent } from "./component/split-files/file-split.component";
 import { FileSplitView } from "./view/file-split.view";
 import { DialogService } from "primeng/dynamicdialog";
 import { TranslateModule } from "@ngx-translate/core";

@@ -15,12 +15,16 @@
   </div>
 </ng-container>
 
-<div class="mt-5 flex justify-content-center gap-5 flex-wrap">
-  <div *ngFor="let pagePdf of pagesPdf; let i = index">
-    <pdf-page-content [pagePdf]="pagePdf"></pdf-page-content>
+<div *ngIf="file" class="mt-5 flex justify-content-center gap-5 flex-wrap">
+  <div *ngFor="let pagePdf of file.pagesProxy; let i = index">
+    <div class="file-preview cursor-pointer" (click)="select(pagePdf.uuid)">
+      <div *ngIf="pagePdf?.display" class="file-preview__select">
+        <fa-icon [size]="'1x'" [icon]="'check'" class="fa-icon"></fa-icon>
+      </div>
+      <ng-container *ngIf="pagePdf.pdfPage">
+        <pdf-page-content [pagePdf]="pagePdf.pdfPage"></pdf-page-content>
+      </ng-container>
+    </div>
   </div>
 </div>
-
-<!--<p-button label="Split file" [styleClass]="'w-full'" (onClick)="upload()"-->
-<!--          [disabled]="!file" class="flex-1"></p-button>-->
 
