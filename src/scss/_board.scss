@@ -10,12 +10,18 @@
 .documents-bar, .signatories-bar {
   width: 20%;
   background-color: $background;
+  display: flex;
+  flex-direction: column;
+}
+
+.documents-bar--list{
   overflow-y: scroll;
+  flex: 1;
   scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
   -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
 }
 
-.documents-bar::-webkit-scrollbar,
+.documents-bar--list::-webkit-scrollbar,
 .signatories-bar::-webkit-scrollbar{
   display: none; /* Pour les navigateurs basés sur Webkit (Chrome, Safari, etc.) */
 }
@@ -39,6 +45,9 @@
   background-color: $background-somber;
   border-bottom: 1px solid $background-border;
   height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .bar-item--title {
@@ -87,6 +96,7 @@
   overflow-x: hidden;
   scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
   -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+  min-height: 300px;
 }
 
 .bar-item-collapse::-webkit-scrollbar {

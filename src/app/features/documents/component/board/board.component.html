@@ -13,9 +13,11 @@
       </div>
     </div>
 
-    <ng-container *ngFor="let file of files">
-      <app-document-item [file]="file"></app-document-item>
-    </ng-container>
+    <div class="documents-bar--list">
+      <ng-container *ngFor="let file of files">
+        <app-document-item [file]="file"></app-document-item>
+      </ng-container>
+    </div>
   </div>
   <div class="custom-viewer">
     <div *ngIf="files.length == 0" class="flex flex-column">

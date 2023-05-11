@@ -5,7 +5,7 @@ import { PdfViewerEvent } from "../../../../shared/modules/pdf-viewer/pdf-viewer
 
 @Component({
   selector: "app-board",
-  templateUrl: "./board.component.html"
+  templateUrl: "./board.component.html",
 })
 export class BoardComponent {
 
