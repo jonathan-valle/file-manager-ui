@@ -10,6 +10,14 @@
 .documents-bar, .signatories-bar {
   width: 20%;
   background-color: $background;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
+  -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+}
+
+.documents-bar::-webkit-scrollbar,
+.signatories-bar::-webkit-scrollbar{
+  display: none; /* Pour les navigateurs basés sur Webkit (Chrome, Safari, etc.) */
 }
 
 .custom-viewer {

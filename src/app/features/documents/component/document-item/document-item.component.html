@@ -17,7 +17,7 @@
 </div>
 <div class="bar-item-collapse flex justify-content-center flex-column" [class.collapsed]="!isCollapsed">
   <ng-container *ngFor="let pagePdf of pagesPdf; let i = index">
-    <pdf-page-content [pagePdf]="pagePdf"></pdf-page-content>
+    <pdf-page-content [pagePdf]="pagePdf" class="flex flex-column justify-content-center align-items-center gap-2"></pdf-page-content>
   </ng-container>
 </div>
 
