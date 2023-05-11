@@ -89,19 +89,9 @@
   color: $text-color-grey;
 }
 
-.bar-item-collapse {
-  height: auto; /* Ajustez cette valeur en fonction de la hauteur maximale souhaitée */
-  transition: max-height 0.5s ease-in-out;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none; /* Pour les navigateurs basés sur Firefox */
-  -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
-  min-height: 300px;
-}
 
-.bar-item-collapse::-webkit-scrollbar {
-  display: none;
-}
+
+
 
 .collapsed {
   max-height: 0;
