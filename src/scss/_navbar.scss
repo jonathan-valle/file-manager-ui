@@ -1,4 +1,4 @@
-$blue: #1684FD;
+@import "./variables";
 
 /* Style pour le bloc principal de la navbar */
 .navbar {
@@ -8,7 +8,7 @@ $blue: #1684FD;
   background-color: $blue;
   font-family: Arial, sans-serif;
   font-size: 1rem;
-  color: #fff;
+  color: $white;
   height: 50px;
 }
 
@@ -43,7 +43,7 @@ $blue: #1684FD;
 
 /* Style pour un lien du menu */
 .navbar__link {
-  color: #fff;
+  color: $white;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;

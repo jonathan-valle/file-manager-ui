@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 
-.documents-bar--list{
+.documents-bar--list {
   background-color: $white;
   overflow-y: scroll;
   flex: 1;
@@ -23,7 +23,7 @@
 }
 
 .documents-bar--list::-webkit-scrollbar,
-.signatories-bar::-webkit-scrollbar{
+.signatories-bar::-webkit-scrollbar {
   display: none; /* Pour les navigateurs basés sur Webkit (Chrome, Safari, etc.) */
 }
 
@@ -42,6 +42,7 @@
 }
 
 .bar-item {
+  padding: 0 1.5rem 0 1.5rem;
   display: flex;
   background-color: $white;
   border-bottom: 1px solid $white-somber-3;
@@ -52,7 +53,7 @@
   height: 80px;
   position: relative;
   border-bottom: none;
-  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   clip-path: inset(0px 0px -5px 0px);
   z-index: 10;
 }
@@ -62,7 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $text-color-grey;
+  color: $grey;
 }
 
 .bar-item__number {
@@ -70,6 +71,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 
 .bar-item__name {
@@ -78,6 +80,12 @@
   align-items: center;
   justify-content: flex-start;
   padding-left: 10px;
+  flex: 1;
+}
+
+.bar-item__name--title {
+  font-weight: 400;
+  font-size: 1.8rem;
 }
 
 .bar-item__expand {
@@ -85,10 +93,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $text-color-grey;
+  color: $grey;
 }
 
-.collapsed{
+.collapsed {
   display: none;
 }
 
@@ -102,8 +110,40 @@
   display: none;
 }
 
-.bar-item--title--collapsed{
+.bar-item--title--collapsed {
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 1;
+}
+
+.bar-item-pdf-viewer {
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid $blue;
+  transition: transform 0.3s ease;
+}
+
+.bar-item-pdf-viewer:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.counter-item {
+  background-color: $white-somber-3;
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar-item-collapse--actions {
+  height: 2rem;
+  width: 100%;
+  background-color: $white-somber-4;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0 0 5px 5px;
 }

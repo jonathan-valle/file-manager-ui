@@ -3,24 +3,30 @@
 
     <div class="bar-item bar-item--title">
       <div class="bar-item__number">
-        2
+        <span class="counter-item">
+          {{files.length}}
+        </span>
       </div>
-      <div class="bar-item__name">
+      <div class="bar-item__name bar-item__name--title">
         Documents
       </div>
       <div class="bar-item__expand">
-        test
+        <fa-icon [icon]="'file-circle-plus'" [size]="'lg'" class="cursor-pointer green"
+                 (click)="fileInput.click()"></fa-icon>
+        <input type="file" #fileInput class="file-drop__input-file" style="display: none;"
+               (change)="onFileChange($event)"
+               multiple>
       </div>
     </div>
 
     <div class="documents-bar--list">
-      <ng-container *ngFor="let file of files">
-        <app-document-item [file]="file"></app-document-item>
+      <ng-container *ngFor="let file of files; let i = index">
+        <app-document-item [file]="file" [index]="i"></app-document-item>
       </ng-container>
     </div>
   </div>
   <div class="custom-viewer">
-    <div *ngIf="files.length == 0" class="flex flex-column">
+    <div *ngIf="files.length == 0" class="flex flex-column mt-8">
       <file-drop (addFiles)="addFiles($event)"></file-drop>
     </div>
     <ng-container *ngIf="files.length > 0" class="flex justify-content-center">
@@ -32,6 +38,6 @@
     </ng-container>
   </div>
   <div class="signatories-bar">
-    test
+    TODO
   </div>
 </div>

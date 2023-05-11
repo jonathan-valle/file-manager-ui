@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 import { PdfFile } from "../../../../core/model/pdf-file.model";
-import { PdfPage } from "../../../../core/model/pdf-page.model";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
@@ -16,7 +15,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
       })),
       state("expanded", style({
         height: "*",
-        overflow: "auto"
+        overflow: "auto",
+        padding: "0 20px 20px 20px"
       })),
       transition("expanded <=> collapsed", animate("300ms linear"))
     ])
@@ -25,7 +25,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 export class DocumentItemComponent {
 
   @Input() file?: PdfFile;
-  pagesPdf: PdfPage[] = [];
+  @Input() index?: number;
 
   @ViewChild("barItemCollapse", {static: false}) barItemCollapse?: ElementRef;
   isCollapsed = true;

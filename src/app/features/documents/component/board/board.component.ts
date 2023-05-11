@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { v4 } from "uuid";
 import { PdfFile } from "../../../../core/model/pdf-file.model";
 import { PdfViewerEvent } from "../../../../shared/modules/pdf-viewer/pdf-viewer-event-bus";
@@ -9,6 +9,8 @@ import { PdfManagerService } from "../../../../core/service/pdf-manager.service"
   templateUrl: "./board.component.html",
 })
 export class BoardComponent {
+
+  @ViewChild("fileInput") fileInput: any;
 
   files: PdfFile[] = [];
   loadingFiles: string[] = [];
@@ -33,5 +35,14 @@ export class BoardComponent {
 
   pdfLoadFinished($event: string) {
     this.loadingFiles = this.loadingFiles.filter((uuid) => uuid !== $event);
+  }
+
+  onFileChange($event: Event) {
+    let target = $event.target as HTMLInputElement;
+    if (target.files) {
+      const files = Array.from(target.files);
+      this.addFiles(files);
+    }
+    this.fileInput.nativeElement.value = "";
   }
 }

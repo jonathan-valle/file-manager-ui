@@ -1,6 +1,4 @@
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from "@angular/core";
-import * as pdfjsLib from "pdfjs-dist";
-import { PdfPage } from "../../../core/model/pdf-page.model";
 import { PDFPageProxy } from "pdfjs-dist";
 
 @Component({
@@ -10,6 +8,8 @@ import { PDFPageProxy } from "pdfjs-dist";
 export class PdfPageContentComponent implements OnChanges {
 
   @Input() pagePdf?: PDFPageProxy;
+  @Input() width: number = 127;
+  @Input() customClass?: string;
 
   @ViewChild("pagePdfCanvas", {static: true, read: ElementRef<HTMLCanvasElement>})
   private pagePdfCanvas?: ElementRef<HTMLCanvasElement>;
@@ -23,6 +23,7 @@ export class PdfPageContentComponent implements OnChanges {
     let page = this.pagePdf;
 
     const canvas = this.pagePdfCanvas.nativeElement;
+    canvas.width = this.width;
     const context = canvas.getContext("2d");
     const viewport = page.getViewport({scale: 1});
     const ratio = canvas.width / viewport.width;

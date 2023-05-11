@@ -10,10 +10,14 @@ import {
   faCloudArrowUp,
   faCodeMerge,
   faEnvelope,
+  faFileCirclePlus,
   faGripLines,
   faLock,
   faLockOpen,
+  faPen,
   faQuestion,
+  faSignature,
+  faTrash,
   faTriangleExclamation,
   faUser
 } from "@fortawesome/free-solid-svg-icons";
@@ -49,7 +53,11 @@ export class FaIconsModule {
     faUser,
     faGripLines,
     faCaretDown,
-    faCaretRight
+    faCaretRight,
+    faFileCirclePlus,
+    faPen,
+    faTrash,
+    faSignature
   ];
 
   constructor(faIconLibrary: FaIconLibrary) {

@@ -3,7 +3,9 @@
     <fa-icon [size]="'1x'" [icon]="'grip-lines'" class="fa-icon"></fa-icon>
   </div>
   <div class="bar-item__number">
-    2
+    <span>
+      {{ index }}
+    </span>
   </div>
   <div class="bar-item__name">
     {{ file?.originalFile?.name }}
@@ -15,9 +17,25 @@
              (click)="isCollapsed = !isCollapsed"></fa-icon>
   </div>
 </div>
-<div class="bar-item-collapse flex justify-content-center flex-column" [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
-  <ng-container *ngFor="let pagePdf of pagesPdf; let i = index">
-    <pdf-page-content [pagePdf]="pagePdf.pdfPage" class="flex flex-column justify-content-center align-items-center gap-2"></pdf-page-content>
+<div class="bar-item-collapse flex justify-content-center flex-column gap-3 align-items-center"
+     [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
+  <div class="bar-item-collapse--actions">
+    <div style="font-size: 0.8rem; font-weight: 400">
+      <fa-icon [size]="'1x'" [icon]="'pen'" class="fa-icon"></fa-icon>
+      Edit
+    </div>
+    <div style="font-size: 0.8rem;" class="cursor-pointer">
+      <fa-icon [size]="'1x'" [icon]="'trash'" class="fa-icon mr-2"></fa-icon>
+      <span style="font-weight: 600">Trash</span>
+    </div>
+  </div>
+  <ng-container *ngFor="let pagePdf of file?.pagesProxy; let i = index">
+    <div style="display: grid; justify-items: center; gap: 0.5rem">
+      <pdf-page-content [customClass]="'bar-item-pdf-viewer'"
+                        [pagePdf]="pagePdf.pdfPage"
+                        [width]="170"></pdf-page-content>
+      <span>{{ pagePdf.pdfPage.pageNumber }}</span>
+    </div>
   </ng-container>
 </div>
 
