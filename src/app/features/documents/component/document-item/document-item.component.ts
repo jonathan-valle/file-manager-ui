@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { PdfFile } from "../../../../core/model/pdf-file.model";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
@@ -27,7 +27,21 @@ export class DocumentItemComponent {
   @Input() file?: PdfFile;
   @Input() index?: number;
 
-  @ViewChild("barItemCollapse", {static: false}) barItemCollapse?: ElementRef;
+  @Output() changePage = new EventEmitter<number>();
+  @Output() selectFileUuid = new EventEmitter<string>();
+
   isCollapsed = true;
 
+  selectPage(pageNumber: number) {
+    this.changePage.emit(pageNumber);
+  }
+
+  selectFile() {
+    // we want to select the file
+    if (this.isCollapsed) {
+      this.selectFileUuid.emit(this.file?.uuid);
+    }
+
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

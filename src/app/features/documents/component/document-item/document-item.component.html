@@ -1,4 +1,4 @@
-<div class="bar-item" [ngClass]="{'bar-item--title--collapsed': !isCollapsed}">
+<div class="bar-item cursor-pointer" [ngClass]="{'bar-item--title--collapsed': !isCollapsed}" (click)="selectFile()">
   <div class="bar-item__drag">
     <fa-icon [size]="'1x'" [icon]="'grip-lines'" class="fa-icon"></fa-icon>
   </div>
@@ -12,9 +12,8 @@
   </div>
   <div class="bar-item__expand">
     <fa-icon *ngIf="!isCollapsed" [size]="'1x'" [icon]="'caret-down'" class="fa-icon cursor-pointer"
-             (click)="isCollapsed = !isCollapsed"></fa-icon>
-    <fa-icon *ngIf="isCollapsed" [size]="'1x'" [icon]="'caret-right'" class="fa-icon cursor-pointer"
-             (click)="isCollapsed = !isCollapsed"></fa-icon>
+    ></fa-icon>
+    <fa-icon *ngIf="isCollapsed" [size]="'1x'" [icon]="'caret-right'" class="fa-icon cursor-pointer"></fa-icon>
   </div>
 </div>
 <div class="bar-item-collapse flex justify-content-center flex-column gap-3 align-items-center"
@@ -31,9 +30,16 @@
   </div>
   <ng-container *ngFor="let pagePdf of file?.pagesProxy; let i = index">
     <div style="display: grid; justify-items: center; gap: 0.5rem">
-      <pdf-page-content [customClass]="'bar-item-pdf-viewer'"
-                        [pagePdf]="pagePdf.pdfPage"
-                        [width]="170"></pdf-page-content>
+      <div [ngClass]="{
+                        'bar-item-pdf-viewer': true,
+                        'bar-item-pdf-viewer--selected': pagePdf.selected,
+                        'bar-item-pdf-viewer--none': !pagePdf.selected,
+                      }"
+           (click)="selectPage(pagePdf.pdfPage.pageNumber)"
+      >
+        <pdf-page-content [pagePdf]="pagePdf.pdfPage"
+                          [customWidth]="170"></pdf-page-content>
+      </div>
       <span>{{ pagePdf.pdfPage.pageNumber }}</span>
     </div>
   </ng-container>

@@ -35,7 +35,11 @@
 
       <div class="documents-bar--list">
         <ng-container *ngFor="let file of files; let i = index">
-          <app-document-item [file]="file" [index]="i"></app-document-item>
+          <app-document-item [file]="file"
+                             [index]="i"
+                             (changePage)="changePage($event)"
+                             (selectFileUuid)="selectFile($event)">
+          </app-document-item>
         </ng-container>
       </div>
     </div>
@@ -43,9 +47,9 @@
       <div *ngIf="files.length == 0" class="flex flex-column mt-8">
         <file-drop (addFiles)="addFiles($event)"></file-drop>
       </div>
-      <ng-container *ngIf="selectedFile" class="flex justify-content-center">
+      <ng-container *ngIf="isFileSelect" class="flex justify-content-center">
         <div class="pdf-viewer-container">
-          <pdf-viewer [pdfSrc]="selectedFile.originalFile"
+          <pdf-viewer #pdfViewer [pdfSrc]="selectedFile.originalFile"
                       (changes)="viewerEvents($event)"
                       class="flex flex-column"></pdf-viewer>
         </div>

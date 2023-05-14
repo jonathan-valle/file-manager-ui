@@ -133,12 +133,18 @@
 .bar-item-pdf-viewer {
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  border: 2px solid $blue;
-  transition: transform 0.3s ease;
+
+
+  &--selected {
+    border: 2px solid $blue;
+  }
+
+  &--none {
+    border: 2px solid transparent;
+  }
 }
 
 .bar-item-pdf-viewer:hover {
-  transform: scale(1.01);
   cursor: pointer;
 }
 
