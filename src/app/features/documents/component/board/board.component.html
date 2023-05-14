@@ -1,43 +1,58 @@
-<div class="container container--board">
-  <div class="documents-bar">
+<ng-container *ngIf="loading">
+  <div class="container container--loader">
+    <span class="loader"></span>
+    <div class="loading">
+      <span class="mr-2">Analyse des fichiers</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+      <span class="dot">.</span>
+    </div>
+  </div>
+</ng-container>
 
-    <div class="bar-item bar-item--title">
-      <div class="bar-item__number">
-        <span class="counter-item">
-          {{files.length}}
-        </span>
+<ng-container *ngIf="!loading">
+  <div class="container container--board">
+
+    <div class="documents-bar">
+
+      <div class="bar-item bar-item--title">
+        <div class="bar-item__number">
+          <span class="counter-item">
+            {{files.length}}
+          </span>
+        </div>
+        <div class="bar-item__name bar-item__name--title">
+          Documents
+        </div>
+        <div class="bar-item__expand">
+          <fa-icon [icon]="'file-circle-plus'" [size]="'lg'" class="cursor-pointer green"
+                   (click)="fileInput.click()"></fa-icon>
+          <input type="file" #fileInput class="file-drop__input-file" style="display: none;"
+                 (change)="onFileChange($event)"
+                 multiple>
+        </div>
       </div>
-      <div class="bar-item__name bar-item__name--title">
-        Documents
-      </div>
-      <div class="bar-item__expand">
-        <fa-icon [icon]="'file-circle-plus'" [size]="'lg'" class="cursor-pointer green"
-                 (click)="fileInput.click()"></fa-icon>
-        <input type="file" #fileInput class="file-drop__input-file" style="display: none;"
-               (change)="onFileChange($event)"
-               multiple>
+
+      <div class="documents-bar--list">
+        <ng-container *ngFor="let file of files; let i = index">
+          <app-document-item [file]="file" [index]="i"></app-document-item>
+        </ng-container>
       </div>
     </div>
-
-    <div class="documents-bar--list">
-      <ng-container *ngFor="let file of files; let i = index">
-        <app-document-item [file]="file" [index]="i"></app-document-item>
+    <div class="custom-viewer">
+      <div *ngIf="files.length == 0" class="flex flex-column mt-8">
+        <file-drop (addFiles)="addFiles($event)"></file-drop>
+      </div>
+      <ng-container *ngIf="selectedFile" class="flex justify-content-center">
+        <div class="pdf-viewer-container">
+          <pdf-viewer [pdfSrc]="selectedFile.originalFile"
+                      (changes)="viewerEvents($event)"
+                      class="flex flex-column"></pdf-viewer>
+        </div>
       </ng-container>
     </div>
-  </div>
-  <div class="custom-viewer">
-    <div *ngIf="files.length == 0" class="flex flex-column mt-8">
-      <file-drop (addFiles)="addFiles($event)"></file-drop>
+    <div class="signatories-bar">
+      TODO
     </div>
-    <ng-container *ngIf="files.length > 0" class="flex justify-content-center">
-      <div class="pdf-viewer-container">
-        <pdf-viewer [pdfSrc]="files[0].originalFile"
-                    (changes)="viewerEvents($event)"
-                    class="flex flex-column"></pdf-viewer>
-      </div>
-    </ng-container>
   </div>
-  <div class="signatories-bar">
-    TODO
-  </div>
-</div>
+</ng-container>

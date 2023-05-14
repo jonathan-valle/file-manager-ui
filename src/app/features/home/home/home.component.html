@@ -21,7 +21,7 @@
     <div class="card__icon">
       <fa-icon [size]="'2xl'" [icon]="'signature'" class="fa-icon blue"></fa-icon>
     </div>
-    <div class="card__content">
+    <div class="card__content" [routerLink]="['/documents']">
       <div class="font-bold" style="font-size: 1.2rem">{{ 'file.sign.title' | translate }}</div>
       <div>{{ 'file.sign.title.description' | translate }}</div>
     </div>

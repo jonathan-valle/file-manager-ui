@@ -7,6 +7,20 @@
   padding: 0 !important;
 }
 
+.container--loader {
+  display: flex;
+  height: calc(100% - 50px);
+  max-width: none !important;
+  padding: 0 !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $blue;
+  font-size: 1.8rem;
+  gap: 1rem;
+  font-weight: 600;
+}
+
 .documents-bar, .signatories-bar {
   width: 20%;
   background-color: $white;

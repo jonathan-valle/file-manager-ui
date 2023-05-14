@@ -13,9 +13,18 @@
   <!-- Main container -->
   <div id="mainContainer">
     <!-- Document Loader -->
-    <div class="loader-container" [style.display]="isLoading ? 'flex' : 'none'">
-      <div class="loader" style="align-self: center;"></div>
-    </div>
+    <ng-container *ngIf="isLoading">
+      <div class="loader-container">
+        <span class="loader"></span>
+        <div class="loading">
+          <span class="mr-2">Chargement du fichier</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+        </div>
+      </div>
+    </ng-container>
+
 
     <!-- Content Blocker -->
     <div [hidden]="!blockViewer" class="container-block"></div>
@@ -24,5 +33,6 @@
     <div #pdfViewerContainer id="viewerContainer" tabindex="0">
       <div id="viewer" class="pdfViewer"></div>
     </div>
+
   </div>
 </div>

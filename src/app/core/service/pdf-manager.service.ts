@@ -1,5 +1,18 @@
 import { Injectable } from "@angular/core";
-import { catchError, concatMap, from, map, mergeMap, Observable, Observer, of, range, switchMap, toArray } from "rxjs";
+import {
+  BehaviorSubject,
+  catchError,
+  concatMap,
+  from,
+  map,
+  mergeMap,
+  Observable,
+  Observer,
+  of,
+  range,
+  switchMap,
+  toArray
+} from "rxjs";
 import * as pdfjsLib from "pdfjs-dist";
 import { PDFDocumentProxy } from "pdfjs-dist";
 import { PdfError, PdfErrorType } from "../model/pdf-error.model";
@@ -12,8 +25,27 @@ import { PdfFile } from "../model/pdf-file.model";
 })
 export class PdfManagerService {
 
+  private _filesLoading: string[] = [];
+
+  private _loading = new BehaviorSubject(false);
+  loading$ = this._loading.asObservable();
+
   constructor() {
     pdfjsLib.GlobalWorkerOptions.workerSrc = "assets/pdfjs/pdf.worker.js";
+  }
+
+  fileLoaded(uuid: string) {
+    const index = this._filesLoading.indexOf(uuid);
+    if (index !== -1) {
+      this._filesLoading.splice(index, 1);
+      console.log("fileLoaded", uuid);
+    }
+    this._loading.next(this._filesLoading.length > 0)
+  }
+
+  fileLoading(uuid: string) {
+    this._filesLoading.push(uuid);
+    this._loading.next(this._filesLoading.length > 0)
   }
 
   // Charge un fichier PDF et renvoie un Observable qui émet le PDFDocumentProxy si le chargement réussit
@@ -28,6 +60,7 @@ export class PdfManagerService {
               pdfError: pdfError,
               documentProxy: pdf,
               pagesProxy: [],
+              selected: false,
             };
             return file;
           })
@@ -54,6 +87,7 @@ export class PdfManagerService {
           pdfError: this.mapPdfError(error),
           documentProxy: undefined,
           pagesProxy: [],
+          selected: false,
         };
         return of(file);
       })
@@ -70,6 +104,7 @@ export class PdfManagerService {
               pageNumber: pageNumber,
               pdfPage: page,
               display: true,
+              selected: false,
             };
             return pagePdf;
           }),

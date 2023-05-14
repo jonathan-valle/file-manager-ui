@@ -5,4 +5,5 @@ export interface PdfPage {
   pageNumber: number;
   pdfPage: PDFPageProxy;
   display: boolean;
+  selected: boolean;
 }
