@@ -30,8 +30,8 @@ export class BoardComponent implements OnInit {
   addFiles($event: File[]) {
     $event.forEach((file) => {
       const uuid = v4();
-      //const randomNumber = Math.floor(Math.random() * (4000 - 500 + 1)) + 2000;
-      const randomNumber = 0;
+      const randomNumber = Math.floor(Math.random() * (4000 - 500 + 1)) + 2000;
+      //const randomNumber = 0;
       console.log("temps de chargement", randomNumber, uuid);
       this.pdfManagerService.fileLoading(uuid);
       setTimeout(() => {
