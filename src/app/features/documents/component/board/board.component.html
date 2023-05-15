@@ -48,11 +48,17 @@
         <file-drop (addFiles)="addFiles($event)"></file-drop>
       </div>
       <ng-container *ngIf="isFileSelect" class="flex justify-content-center">
-        <div class="pdf-viewer-container">
-          <pdf-viewer #pdfViewer [pdfSrc]="selectedFile.originalFile"
-                      (changes)="viewerEvents($event)"
-                      class="flex flex-column"></pdf-viewer>
-        </div>
+        <ng-container *ngIf="selectedFile.pdfError?.type">
+          {{ selectedFile.pdfError?.type }}
+        </ng-container>
+
+        <ng-container *ngIf="!selectedFile.pdfError?.type">
+          <div class="pdf-viewer-container">
+            <pdf-viewer #pdfViewer [pdfSrc]="selectedFile.originalFile"
+                        (changes)="viewerEvents($event)"
+                        class="flex flex-column"></pdf-viewer>
+          </div>
+        </ng-container>
       </ng-container>
     </div>
     <div class="signatories-bar">

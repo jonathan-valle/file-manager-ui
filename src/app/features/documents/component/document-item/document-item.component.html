@@ -8,7 +8,12 @@
     </span>
   </div>
   <div class="bar-item__name">
-    {{ file?.originalFile?.name }}
+    <div style="display: block">
+      <span>{{ file?.originalFile?.name }}</span>
+      <span *ngIf="file?.pdfError" class="bar-item__name__error">
+        <p-tag severity="danger">{{ file?.pdfError?.type }}</p-tag>
+      </span>
+    </div>
   </div>
   <div class="bar-item__expand">
     <fa-icon *ngIf="!isCollapsed" [size]="'1x'" [icon]="'caret-down'" class="fa-icon cursor-pointer"
