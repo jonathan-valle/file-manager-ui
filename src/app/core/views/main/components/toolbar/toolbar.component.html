@@ -16,12 +16,12 @@
       <a class="navbar__link" [routerLink]="['/contact']">Contact</a>
     </li>
     <ng-container *ngIf="!isLoggedIn">
-      <li class="navbar__item">
+      <li class="navbar__item cursor-pointer">
         <a class="navbar__link" (click)="login()">Login</a>
       </li>
     </ng-container>
     <ng-container *ngIf="isLoggedIn">
-      <li class="navbar__item">
+      <li class="navbar__item cursor-pointer">
         <a class="navbar__link" (click)="logout()">Logout</a>
       </li>
     </ng-container>

@@ -24,6 +24,8 @@ export class ToolbarComponent {
   }
 
   logout() {
-
+    from(this.keycloakService.logout()).subscribe(() => {
+      // nothing to do
+    })
   }
 }
