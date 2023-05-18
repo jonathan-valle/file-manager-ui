@@ -20,7 +20,8 @@ export class FileMergeRestService {
     }
 
     return this.http.post("/api/file-merge", formData, {
-      responseType: "blob"
+      responseType: "blob",
+      withCredentials: true
     });
   }
 }

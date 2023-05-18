@@ -18,7 +18,8 @@ export class FileSplitRestService {
     }
 
     return this.http.post("/api/file-split", formData, {
-      responseType: "blob"
+      responseType: "blob",
+      withCredentials: true
     });
   }
 }
